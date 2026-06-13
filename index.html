@@ -4,13 +4,13 @@
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>PROSPERGATE — Dein Geld, klar im Blick</title>
-<meta name="description" content="PROSPERGATE: Budget, Krankenkassen-Vergleich und Sparziele in einer App — für 22 Länder, in 18 Sprachen. Sicher, privat und ohne Werbung." />
+<meta name="description" content="PROSPERGATE: Budget, Krankenkassen-Vergleich und Sparziele in einer App — für 27 Länder, in 22 Sprachen. Sicher, privat und ohne Werbung." />
 <link rel="icon" href="favicon.png" />
 <meta name="theme-color" content="#0B0B0D" />
 <meta property="og:type" content="website" />
 <meta property="og:site_name" content="PROSPERGATE" />
 <meta property="og:title" content="PROSPERGATE — Dein Geld, klar im Blick" />
-<meta property="og:description" content="PROSPERGATE: Budget, Krankenkassen-Vergleich und Sparziele in einer App — für 22 Länder, in 18 Sprachen. Sicher, privat und ohne Werbung." />
+<meta property="og:description" content="PROSPERGATE: Budget, Krankenkassen-Vergleich und Sparziele in einer App — für 27 Länder, in 22 Sprachen. Sicher, privat und ohne Werbung." />
 <meta property="og:locale" content="de_CH" />
 <style>
   :root {
@@ -247,7 +247,7 @@
 </style>
 </head>
 <body>
-<a class="skip" href="#main">Zum Inhalt springen</a>
+<a class="skip" href="#main" data-i18n="skip">Zum Inhalt springen</a>
 
 <header>
   <div class="wrap nav">
@@ -256,12 +256,14 @@
       <span class="name gold-text">PROSPERGATE</span>
     </a>
     <nav class="nav-links">
-      <a href="#funktionen">Funktionen</a>
-      <a href="rechner.html" style="color:var(--gold);">Online-Rechner</a>
-      <a href="#laender">Länder</a>
-      <a href="#sicherheit">Sicherheit</a>
-      <a href="#datenschutz">Datenschutz</a>
-      <a href="#download" class="btn btn-gold" style="color:#1A1505;">Download</a>
+      <a href="#funktionen" data-i18n="nFeat">Funktionen</a>
+      <a href="rechner.html" style="color:var(--gold);" data-i18n="nCalc">Online-Rechner</a>
+      <a href="#laender" data-i18n="nCountries">Länder</a>
+      <a href="#sicherheit" data-i18n="nSec">Sicherheit</a>
+      <a href="#datenschutz" data-i18n="nPriv">Datenschutz</a>
+      <select id="langSel" aria-label="Sprache" style="background:#161421;color:#EFE7D2;border:1px solid rgba(231,195,106,.35);border-radius:9px;padding:6px 8px;font:inherit;font-size:13px;cursor:pointer;"></select>
+      <select id="countrySel" aria-label="Land" style="background:#161421;color:#EFE7D2;border:1px solid rgba(231,195,106,.35);border-radius:9px;padding:6px 8px;font:inherit;font-size:13px;cursor:pointer;max-width:170px;"></select>
+      <a href="#download" class="btn btn-gold" style="color:#1A1505;" data-i18n="nDl">Download</a>
     </nav>
   </div>
 </header>
@@ -272,17 +274,17 @@
   <div class="hero-glow"></div>
   <div class="wrap hero-grid">
     <div class="reveal">
-      <div class="eyebrow">Persönliche Finanzen · über Grenzen hinweg</div>
-      <h1>Dein Geld.<br /><span class="gold-text">Klar im Blick.</span></h1>
-      <p class="lead">PROSPERGATE bündelt Budget, Krankenkassen-Vergleich und Sparziele in einer App — für 22 Länder, in 18 Sprachen. Sicher auf deinem Gerät, ganz ohne Werbung.</p>
+      <div class="eyebrow" data-i18n="hEyebrow">Persönliche Finanzen · über Grenzen hinweg</div>
+      <h1><span data-i18n="hH1a">Dein Geld.</span><br /><span class="gold-text" data-i18n="hH1b">Klar im Blick.</span></h1>
+      <p class="lead" data-i18n="hLead">PROSPERGATE bündelt Budget, Krankenkassen-Vergleich und Sparziele in einer App — für 27 Länder, in 22 Sprachen. Sicher auf deinem Gerät, ganz ohne Werbung.</p>
       <div class="cta-row">
         <a href="#download" class="store">
           <svg class="tri" viewBox="0 0 24 24" aria-hidden="true"><path d="M3 2.5v19l16.5-9.5L3 2.5z" fill="#1A1505"/></svg>
-          <span><span class="s1">Jetzt bei</span><br/><span class="s2">Google Play</span></span>
+          <span><span class="s1" data-i18n="hStorePre">Jetzt bei</span><br/><span class="s2">Google Play</span></span>
         </a>
-        <a href="rechner.html" class="btn btn-ghost">Online rechnen →</a>
+        <a href="rechner.html" class="btn btn-ghost" data-i18n="hCalcBtn">Online rechnen →</a>
       </div>
-      <div class="trust">Entwickelt in Basel <b>·</b> Keine Werbung <b>·</b> Daten bleiben auf dem Gerät</div>
+      <div class="trust"><span data-i18n="tBasel">Entwickelt in Basel</span> <b>·</b> <span data-i18n="tNoAds">Keine Werbung</span> <b>·</b> <span data-i18n="tLocal">Daten bleiben auf dem Gerät</span></div>
     </div>
 
     <div class="reveal">
@@ -359,10 +361,10 @@
 
 <section class="stats">
   <div class="wrap stats-grid">
-    <div class="stat"><div class="n gold-text">22</div><div class="l">Länder</div></div>
-    <div class="stat"><div class="n gold-text">18</div><div class="l">Sprachen</div></div>
-    <div class="stat"><div class="n gold-text">60</div><div class="l">Designs</div></div>
-    <div class="stat"><div class="n gold-text">0</div><div class="l">Werbung</div></div>
+    <div class="stat"><div class="n gold-text">27</div><div class="l" data-i18n="sCountries">Länder</div></div>
+    <div class="stat"><div class="n gold-text">22</div><div class="l" data-i18n="sLangs">Sprachen</div></div>
+    <div class="stat"><div class="n gold-text">60</div><div class="l" data-i18n="sDesigns">Designs</div></div>
+    <div class="stat"><div class="n gold-text">0</div><div class="l" data-i18n="sAds">Werbung</div></div>
   </div>
 </section>
 
@@ -370,13 +372,13 @@
 <section class="feat" id="funktionen">
   <div class="wrap feat-grid reveal">
     <div class="col-txt">
-      <div class="eyebrow">Überblick</div>
-      <h2>Sieh sofort, was <span class="gold-text">übrig bleibt.</span></h2>
-      <p>Einnahmen, Ausgaben und Überschuss auf einen Blick - mit deiner Sparquote und einer klaren Ampel von Kritisch bis Hervorragend.</p>
+      <div class="eyebrow" data-i18n="f1_eye">Überblick</div>
+      <h2><span data-i18n="f1_ha">Sieh sofort, was</span> <span class="gold-text" data-i18n="f1_hb">übrig bleibt.</span></h2>
+      <p data-i18n="f1_desc">Einnahmen, Ausgaben und Überschuss auf einen Blick - mit deiner Sparquote und einer klaren Ampel von Kritisch bis Hervorragend.</p>
       <ul class="mini">
-        <li>Monatlicher Restbetrag in Echtzeit</li>
-        <li>Vier-Stufen-Status mit Farb-Ampel</li>
-        <li>Alle Kategorien übersichtlich aufgelistet</li>
+        <li data-i18n="f1_b1">Monatlicher Restbetrag in Echtzeit</li>
+        <li data-i18n="f1_b2">Vier-Stufen-Status mit Farb-Ampel</li>
+        <li data-i18n="f1_b3">Alle Kategorien übersichtlich aufgelistet</li>
       </ul>
     </div>
     <div class="col-vis">
@@ -395,13 +397,13 @@
 <section class="feat alt">
   <div class="wrap feat-grid reveal">
     <div class="col-txt">
-      <div class="eyebrow">Designs</div>
-      <h2>60 Designs. <span class="gold-text">30 davon animiert.</span></h2>
-      <p>Mach die App zu deiner: 30 Farb-Designs und 30 animierte Designs mit einem Leucht-Rahmen, der langsam in zwei Farben um jedes Kästchen läuft - plus eine sanfte Welle im Hintergrund.</p>
+      <div class="eyebrow" data-i18n="f2_eye">Designs</div>
+      <h2><span data-i18n="f2_ha">60 Designs.</span> <span class="gold-text" data-i18n="f2_hb">30 davon animiert.</span></h2>
+      <p data-i18n="f2_desc">Mach die App zu deiner: 30 Farb-Designs und 30 animierte Designs mit einem Leucht-Rahmen, der langsam in zwei Farben um jedes Kästchen läuft - plus eine sanfte Welle im Hintergrund.</p>
       <ul class="mini">
-        <li>Umlaufender Rahmen in deinen Design-Farben</li>
-        <li>Vorschau zuerst - kein Blindkauf</li>
-        <li>Auch die Menüleiste wird animiert</li>
+        <li data-i18n="f2_b1">Umlaufender Rahmen in deinen Design-Farben</li>
+        <li data-i18n="f2_b2">Vorschau zuerst - kein Blindkauf</li>
+        <li data-i18n="f2_b3">Auch die Menüleiste wird animiert</li>
       </ul>
     </div>
     <div class="col-vis">
@@ -421,13 +423,13 @@
 <section class="feat">
   <div class="wrap feat-grid reveal">
     <div class="col-txt">
-      <div class="eyebrow">Scannen & Erkennen</div>
-      <h2>Beleg fotografieren — <span class="gold-text">fertig.</span></h2>
-      <p>Fotografiere eine Rechnung: PROSPERGATE liest Betrag und Fälligkeit aus und legt sie automatisch in den Kalender. Ganz ohne Tippen.</p>
+      <div class="eyebrow" data-i18n="f3_eye">Scannen & Erkennen</div>
+      <h2><span data-i18n="f3_ha">Beleg fotografieren —</span> <span class="gold-text" data-i18n="f3_hb">fertig.</span></h2>
+      <p data-i18n="f3_desc">Fotografiere eine Rechnung: PROSPERGATE liest Betrag und Fälligkeit aus und legt sie automatisch in den Kalender. Ganz ohne Tippen.</p>
       <ul class="mini">
-        <li>Betrag und Fälligkeit automatisch erkannt</li>
-        <li>Direkt in den Kalender übernommen</li>
-        <li>Auch aus PDF oder Galerie</li>
+        <li data-i18n="f3_b1">Betrag und Fälligkeit automatisch erkannt</li>
+        <li data-i18n="f3_b2">Direkt in den Kalender übernommen</li>
+        <li data-i18n="f3_b3">Auch aus PDF oder Galerie</li>
       </ul>
     </div>
     <div class="col-vis">
@@ -450,13 +452,13 @@
 <section class="feat alt">
   <div class="wrap feat-grid reveal">
     <div class="col-txt">
-      <div class="eyebrow">Krankenkasse</div>
-      <h2>Echte Beiträge. <span class="gold-text">Günstigste zuerst.</span></h2>
-      <p>Vergleiche echte Prämien für die Schweiz, Deutschland und die Niederlande — plus Beitragsrechner für den Balkan, Österreich und Polen.</p>
+      <div class="eyebrow" data-i18n="f4_eye">Krankenkasse</div>
+      <h2><span data-i18n="f4_ha">Echte Beiträge.</span> <span class="gold-text" data-i18n="f4_hb">Günstigste zuerst.</span></h2>
+      <p data-i18n="f4_desc">Vergleiche echte Prämien für die Schweiz, Deutschland und die Niederlande — plus Beitragsrechner für den Balkan, Österreich und Polen.</p>
       <ul class="mini">
-        <li>Schweiz, Deutschland, Niederlande — echte Prämien</li>
-        <li>Balkan: 🇧🇦 🇷🇸 🇭🇷 🇸🇮 🇲🇰 🇦🇱 🇽🇰</li>
-        <li>Österreich und Polen mit Beitragssatz</li>
+        <li data-i18n="f4_b1">Schweiz, Deutschland, Niederlande — echte Prämien</li>
+        <li data-i18n="f4_b2">Balkan: 🇧🇦 🇷🇸 🇭🇷 🇸🇮 🇲🇰 🇦🇱 🇽🇰</li>
+        <li data-i18n="f4_b3">Österreich und Polen mit Beitragssatz</li>
       </ul>
     </div>
     <div class="col-vis">
@@ -475,13 +477,13 @@
 <section class="feat">
   <div class="wrap feat-grid reveal">
     <div class="col-txt">
-      <div class="eyebrow">Internet & Handy</div>
-      <h2>Den günstigsten <span class="gold-text">Tarif finden.</span></h2>
-      <p>Internet- und Handy-Tarife vieler Länder im Vergleich — finde schnell das beste Angebot und spar bei den Fixkosten.</p>
+      <div class="eyebrow" data-i18n="f5_eye">Internet & Handy</div>
+      <h2><span data-i18n="f5_ha">Den günstigsten</span> <span class="gold-text" data-i18n="f5_hb">Tarif finden.</span></h2>
+      <p data-i18n="f5_desc">Internet- und Handy-Tarife vieler Länder im Vergleich — finde schnell das beste Angebot und spar bei den Fixkosten.</p>
       <ul class="mini">
-        <li>Internet und Handy per Tab umschaltbar</li>
-        <li>Preise für DE, AT, CH, FR, IT, ES, NL, UK</li>
-        <li>Übersichtlich nach Preis sortiert</li>
+        <li data-i18n="f5_b1">Internet und Handy per Tab umschaltbar</li>
+        <li data-i18n="f5_b2">Preise für DE, AT, CH, FR, IT, ES, NL, UK</li>
+        <li data-i18n="f5_b3">Übersichtlich nach Preis sortiert</li>
       </ul>
     </div>
     <div class="col-vis">
@@ -500,13 +502,13 @@
 <section class="feat alt">
   <div class="wrap feat-grid reveal">
     <div class="col-txt">
-      <div class="eyebrow">Schulden & Ziele</div>
-      <h2>Schuldenfrei werden. <span class="gold-text">Ziele erreichen.</span></h2>
-      <p>Behalte offene Kredite und Sparziele im Blick — mit Fortschritt, Strategie und einem klaren Datum, wann du schuldenfrei bist.</p>
+      <div class="eyebrow" data-i18n="f6_eye">Schulden & Ziele</div>
+      <h2><span data-i18n="f6_ha">Schuldenfrei werden.</span> <span class="gold-text" data-i18n="f6_hb">Ziele erreichen.</span></h2>
+      <p data-i18n="f6_desc">Behalte offene Kredite und Sparziele im Blick — mit Fortschritt, Strategie und einem klaren Datum, wann du schuldenfrei bist.</p>
       <ul class="mini">
-        <li>Schuldenfrei-Datum automatisch berechnet</li>
-        <li>Strategie: Lawine oder Schneeball</li>
-        <li>Sparziele mit Fortschrittsbalken</li>
+        <li data-i18n="f6_b1">Schuldenfrei-Datum automatisch berechnet</li>
+        <li data-i18n="f6_b2">Strategie: Lawine oder Schneeball</li>
+        <li data-i18n="f6_b3">Sparziele mit Fortschrittsbalken</li>
       </ul>
     </div>
     <div class="col-vis">
@@ -524,22 +526,22 @@
 <section class="section" id="alle-funktionen">
   <div class="wrap">
     <div class="sec-head reveal">
-      <div class="eyebrow">Alle Funktionen</div>
-      <h2>Alles auf <span class="gold-text">einen Blick.</span></h2>
-      <p>Was alles in PROSPERGATE steckt — übersichtlich an einem Ort, in deiner Sprache.</p>
+      <div class="eyebrow" data-i18n="af_eye">Alle Funktionen</div>
+      <h2><span data-i18n="af_ha">Alles auf</span> <span class="gold-text" data-i18n="af_hb">einen Blick.</span></h2>
+      <p data-i18n="af_desc">Was alles in PROSPERGATE steckt — übersichtlich an einem Ort, in deiner Sprache.</p>
     </div>
     <div class="features">
-      <div class="card reveal"><div class="ic">🎨</div><h3>60 Designs, 30 animiert</h3><p>Farb- und animierte Designs mit umlaufendem Leucht-Rahmen — inklusive Vorschau, bevor du dich entscheidest.</p></div>
-      <div class="card reveal"><div class="ic">📷</div><h3>Beleg-Scan & Erkennung</h3><p>Rechnung fotografieren — Betrag und Fälligkeit landen automatisch im Kalender. Auch aus PDF oder Galerie.</p></div>
-      <div class="card reveal"><div class="ic">🏥</div><h3>Krankenkassen-Vergleich</h3><p>Echte Prämien für die Schweiz, Deutschland und die Niederlande — plus Beitragsrechner für den Balkan, Österreich und Polen.</p></div>
-      <div class="card reveal"><div class="ic">📶</div><h3>Internet & Handy</h3><p>Internet- und Handytarife vieler Länder im Vergleich, damit du nichts zu viel zahlst.</p></div>
-      <div class="card reveal"><div class="ic">📊</div><h3>Budget & Überblick</h3><p>Einnahmen, Ausgaben und Überschuss auf einen Blick — inklusive deiner Sparquote.</p></div>
-      <div class="card reveal"><div class="ic">💳</div><h3>Schulden im Griff</h3><p>Behalte offene Beträge und deinen Fortschritt beim Abbezahlen im Auge.</p></div>
-      <div class="card reveal"><div class="ic">🎯</div><h3>Sparziele</h3><p>Setze Ziele und sieh jederzeit, wie nah du deinem Wunsch schon bist.</p></div>
-      <div class="card reveal"><div class="ic">📅</div><h3>Kalender & Erinnerungen</h3><p>Rechnungen und Fristen rechtzeitig im Blick — mit Erinnerungen direkt in der App.</p></div>
-      <div class="card reveal"><div class="ic">📄</div><h3>Dokumente</h3><p>Wichtige Belege und Unterlagen sicher und griffbereit an einem Ort.</p></div>
-      <div class="card reveal"><div class="ic">🌍</div><h3>22 Länder, 18 Sprachen</h3><p>Währung, Profil und Sprache passen sich automatisch an dich an.</p></div>
-      <div class="card reveal"><div class="ic">🔄</div><h3>Immer aktuell</h3><p>Prämien- und Anbieterdaten aktualisieren sich automatisch im Hintergrund.</p></div>
+      <div class="card reveal"><div class="ic">🎨</div><h3 data-i18n="c1_t">60 Designs, 30 animiert</h3><p data-i18n="c1_d">Farb- und animierte Designs mit umlaufendem Leucht-Rahmen — inklusive Vorschau, bevor du dich entscheidest.</p></div>
+      <div class="card reveal"><div class="ic">📷</div><h3 data-i18n="c2_t">Beleg-Scan & Erkennung</h3><p data-i18n="c2_d">Rechnung fotografieren — Betrag und Fälligkeit landen automatisch im Kalender. Auch aus PDF oder Galerie.</p></div>
+      <div class="card reveal"><div class="ic">🏥</div><h3 data-i18n="c3_t">Krankenkassen-Vergleich</h3><p data-i18n="c3_d">Echte Prämien für die Schweiz, Deutschland und die Niederlande — plus Beitragsrechner für den Balkan, Österreich und Polen.</p></div>
+      <div class="card reveal"><div class="ic">📶</div><h3 data-i18n="c4_t">Internet & Handy</h3><p data-i18n="c4_d">Internet- und Handytarife vieler Länder im Vergleich, damit du nichts zu viel zahlst.</p></div>
+      <div class="card reveal"><div class="ic">📊</div><h3 data-i18n="c5_t">Budget & Überblick</h3><p data-i18n="c5_d">Einnahmen, Ausgaben und Überschuss auf einen Blick — inklusive deiner Sparquote.</p></div>
+      <div class="card reveal"><div class="ic">💳</div><h3 data-i18n="c6_t">Schulden im Griff</h3><p data-i18n="c6_d">Behalte offene Beträge und deinen Fortschritt beim Abbezahlen im Auge.</p></div>
+      <div class="card reveal"><div class="ic">🎯</div><h3 data-i18n="c7_t">Sparziele</h3><p data-i18n="c7_d">Setze Ziele und sieh jederzeit, wie nah du deinem Wunsch schon bist.</p></div>
+      <div class="card reveal"><div class="ic">📅</div><h3 data-i18n="c8_t">Kalender & Erinnerungen</h3><p data-i18n="c8_d">Rechnungen und Fristen rechtzeitig im Blick — mit Erinnerungen direkt in der App.</p></div>
+      <div class="card reveal"><div class="ic">📄</div><h3 data-i18n="c9_t">Dokumente</h3><p data-i18n="c9_d">Wichtige Belege und Unterlagen sicher und griffbereit an einem Ort.</p></div>
+      <div class="card reveal"><div class="ic">🌍</div><h3 data-i18n="c10_t">27 Länder, 22 Sprachen</h3><p data-i18n="c10_d">Währung, Profil und Sprache passen sich automatisch an dich an.</p></div>
+      <div class="card reveal"><div class="ic">🔄</div><h3 data-i18n="c11_t">Immer aktuell</h3><p data-i18n="c11_d">Prämien- und Anbieterdaten aktualisieren sich automatisch im Hintergrund.</p></div>
     </div>
   </div>
 </section>
@@ -563,7 +565,7 @@
       <div class="band-grid">
         <div>
           <div class="eyebrow">In deiner Welt zuhause</div>
-          <h2>22 Länder. 18 Sprachen.<br/><span class="gold-text">Eine App.</span></h2>
+          <h2>27 Länder. 22 Sprachen.<br/><span class="gold-text">Eine App.</span></h2>
           <p>Von der Schweiz über Deutschland und die Niederlande bis Schweden: Währung, Profil und Sprache stellen sich automatisch auf dich ein. Wo es offizielle Daten gibt, vergleicht PROSPERGATE echte Preise — ehrlich und ohne Werbung.</p>
         </div>
         <div class="flags">
@@ -601,11 +603,11 @@
       <div class="glow"></div>
       <div class="eyebrow" style="position:relative;">Download</div>
       <h2>Hol dir PROSPERGATE.</h2>
-      <p>Bald für Android verfügbar. Lade die App und behalte dein Geld im Griff — auf 22 Länder zugeschnitten, in 18 Sprachen.</p>
+      <p>Bald für Android verfügbar. Lade die App und behalte dein Geld im Griff — auf 27 Länder zugeschnitten, in 22 Sprachen.</p>
       <div class="dl-row">
         <a href="#" class="store">
           <svg class="tri" viewBox="0 0 24 24" aria-hidden="true"><path d="M3 2.5v19l16.5-9.5L3 2.5z" fill="#1A1505"/></svg>
-          <span><span class="s1">Jetzt bei</span><br/><span class="s2">Google Play</span></span>
+          <span><span class="s1" data-i18n="hStorePre">Jetzt bei</span><br/><span class="s2">Google Play</span></span>
         </a>
       </div>
       <div class="soon" style="margin-top:16px; position:relative;">Bald verfügbar — der Link wird aktiv, sobald die App im Play Store ist.</div>
@@ -676,11 +678,11 @@
       <span class="name gold-text">PROSPERGATE</span>
     </a>
     <nav class="foot-links">
-      <a href="#funktionen">Funktionen</a>
-      <a href="rechner.html">Online-Rechner</a>
-      <a href="#download">Download</a>
-      <a href="#datenschutz">Datenschutz</a>
-      <a href="#impressum">Impressum</a>
+      <a href="#funktionen" data-i18n="nFeat">Funktionen</a>
+      <a href="rechner.html" data-i18n="nCalc">Online-Rechner</a>
+      <a href="#download" data-i18n="nDl">Download</a>
+      <a href="#datenschutz" data-i18n="nPriv">Datenschutz</a>
+      <a href="#impressum" data-i18n="nImpressum">Impressum</a>
     </nav>
     <div class="legal-small">Entwickelt in Basel 🇨🇭 · © <span id="yr">2026</span> PROSPERGATE. Keine Finanz- oder Versicherungsberatung. Alle Angaben ohne Gewähr.</div>
   </div>
@@ -724,6 +726,108 @@
     els.forEach(function (e) { io.observe(e); });
   })();
   document.getElementById("yr").textContent = new Date().getFullYear();
+</script>
+<script>
+window.PG_EXTRA=window.PG_EXTRA||{};
+(function(){
+function add(l,o){var P=window.PG_EXTRA;if(!P[l])P[l]={};for(var k in o)P[l][k]=o[k];}
+
+add("en",{f1_eye:"Overview",f1_ha:"See instantly what's",f1_hb:"left over.",f1_desc:"Income, expenses and surplus at a glance - with your savings rate and a clear traffic light from Critical to Excellent.",f1_b1:"Monthly balance in real time",f1_b2:"Four-level status with colour traffic light",f1_b3:"All categories clearly listed",f2_eye:"Designs",f2_ha:"60 designs.",f2_hb:"30 of them animated.",f2_desc:"Make the app your own: 30 colour designs and 30 animated designs with a glowing frame that slowly runs around each tile in two colours - plus a gentle wave in the background.",f2_b1:"Rotating frame in your design colours",f2_b2:"Preview first - no blind purchase",f2_b3:"The menu bar is animated too",f3_eye:"Scan & Recognise",f3_ha:"Snap a receipt —",f3_hb:"done.",f3_desc:"Photograph a bill: PROSPERGATE reads the amount and due date and adds them to the calendar automatically. No typing at all.",f3_b1:"Amount and due date recognised automatically",f3_b2:"Added straight to the calendar",f3_b3:"Also from PDF or gallery",f4_eye:"Health insurance",f4_ha:"Real premiums.",f4_hb:"Cheapest first.",f4_desc:"Compare real premiums for Switzerland, Germany and the Netherlands — plus contribution calculators for the Balkans, Austria and Poland.",f4_b1:"Switzerland, Germany, Netherlands — real premiums",f4_b3:"Austria and Poland with contribution rate",f5_eye:"Internet & mobile",f5_ha:"Find the cheapest",f5_hb:"plan.",f5_desc:"Internet and mobile plans from many countries compared — quickly find the best deal and save on fixed costs.",f5_b1:"Switch between internet and mobile by tab",f5_b2:"Prices for DE, AT, CH, FR, IT, ES, NL, UK",f5_b3:"Neatly sorted by price",f6_eye:"Debts & goals",f6_ha:"Become debt-free.",f6_hb:"Reach your goals.",f6_desc:"Keep track of open loans and savings goals — with progress, strategy and a clear date for when you'll be debt-free.",f6_b1:"Debt-free date calculated automatically",f6_b2:"Strategy: avalanche or snowball",f6_b3:"Savings goals with progress bars"});
+
+add("fr",{f1_eye:"Vue d'ensemble",f1_ha:"Vois tout de suite ce qui",f1_hb:"reste.",f1_desc:"Revenus, dépenses et excédent en un coup d'œil - avec ton taux d'épargne et un feu clair, de Critique à Excellent.",f1_b1:"Solde mensuel en temps réel",f1_b2:"Statut à quatre niveaux avec feu coloré",f1_b3:"Toutes les catégories clairement listées",f2_eye:"Designs",f2_ha:"60 designs.",f2_hb:"dont 30 animés.",f2_desc:"Fais de l'app la tienne : 30 designs colorés et 30 designs animés avec un cadre lumineux qui glisse lentement autour de chaque case en deux couleurs - plus une douce vague en arrière-plan.",f2_b1:"Cadre tournant dans tes couleurs",f2_b2:"Aperçu d'abord - pas d'achat à l'aveugle",f2_b3:"La barre de menu est aussi animée",f3_eye:"Scanner & Reconnaître",f3_ha:"Photographie un reçu —",f3_hb:"terminé.",f3_desc:"Photographie une facture : PROSPERGATE lit le montant et l'échéance et les ajoute automatiquement au calendrier. Sans rien taper.",f3_b1:"Montant et échéance reconnus automatiquement",f3_b2:"Ajouté directement au calendrier",f3_b3:"Aussi depuis un PDF ou la galerie",f4_eye:"Assurance maladie",f4_ha:"Vraies primes.",f4_hb:"Les moins chères d'abord.",f4_desc:"Compare les vraies primes pour la Suisse, l'Allemagne et les Pays-Bas — plus des calculateurs de cotisations pour les Balkans, l'Autriche et la Pologne.",f4_b1:"Suisse, Allemagne, Pays-Bas — vraies primes",f4_b3:"Autriche et Pologne avec taux de cotisation",f5_eye:"Internet & mobile",f5_ha:"Trouve le forfait",f5_hb:"le moins cher.",f5_desc:"Forfaits internet et mobile de nombreux pays comparés — trouve vite la meilleure offre et économise sur les frais fixes.",f5_b1:"Bascule entre internet et mobile par onglet",f5_b2:"Prix pour DE, AT, CH, FR, IT, ES, NL, UK",f5_b3:"Classé clairement par prix",f6_eye:"Dettes & objectifs",f6_ha:"Deviens libre de dettes.",f6_hb:"Atteins tes objectifs.",f6_desc:"Garde un œil sur tes crédits en cours et tes objectifs d'épargne — avec la progression, la stratégie et une date claire de libération des dettes.",f6_b1:"Date sans dettes calculée automatiquement",f6_b2:"Stratégie : avalanche ou boule de neige",f6_b3:"Objectifs d'épargne avec barres de progression"});
+
+add("it",{f1_eye:"Panoramica",f1_ha:"Vedi subito cosa",f1_hb:"rimane.",f1_desc:"Entrate, uscite e avanzo a colpo d'occhio - con il tuo tasso di risparmio e un semaforo chiaro, da Critico a Eccellente.",f1_b1:"Saldo mensile in tempo reale",f1_b2:"Stato a quattro livelli con semaforo colorato",f1_b3:"Tutte le categorie elencate con chiarezza",f2_eye:"Design",f2_ha:"60 design.",f2_hb:"30 dei quali animati.",f2_desc:"Rendi l'app tua: 30 design colorati e 30 design animati con una cornice luminosa che scorre lentamente attorno a ogni riquadro in due colori - più una morbida onda sullo sfondo.",f2_b1:"Cornice rotante nei tuoi colori",f2_b2:"Prima l'anteprima - niente acquisti al buio",f2_b3:"Anche la barra dei menu è animata",f3_eye:"Scansiona e riconosci",f3_ha:"Fotografa una ricevuta —",f3_hb:"fatto.",f3_desc:"Fotografa una fattura: PROSPERGATE legge importo e scadenza e li inserisce automaticamente nel calendario. Senza digitare nulla.",f3_b1:"Importo e scadenza riconosciuti automaticamente",f3_b2:"Aggiunto subito al calendario",f3_b3:"Anche da PDF o galleria",f4_eye:"Cassa malati",f4_ha:"Premi reali.",f4_hb:"Prima i più economici.",f4_desc:"Confronta i premi reali per Svizzera, Germania e Paesi Bassi — più calcolatori dei contributi per i Balcani, l'Austria e la Polonia.",f4_b1:"Svizzera, Germania, Paesi Bassi — premi reali",f4_b3:"Austria e Polonia con aliquota contributiva",f5_eye:"Internet e cellulare",f5_ha:"Trova la tariffa",f5_hb:"più conveniente.",f5_desc:"Tariffe internet e cellulare di molti paesi a confronto — trova in fretta l'offerta migliore e risparmia sui costi fissi.",f5_b1:"Passa tra internet e cellulare con una scheda",f5_b2:"Prezzi per DE, AT, CH, FR, IT, ES, NL, UK",f5_b3:"Ordinato chiaramente per prezzo",f6_eye:"Debiti e obiettivi",f6_ha:"Diventa libero dai debiti.",f6_hb:"Raggiungi i tuoi obiettivi.",f6_desc:"Tieni d'occhio prestiti aperti e obiettivi di risparmio — con avanzamento, strategia e una data chiara in cui sarai senza debiti.",f6_b1:"Data senza debiti calcolata in automatico",f6_b2:"Strategia: valanga o palla di neve",f6_b3:"Obiettivi di risparmio con barre di avanzamento"});
+
+add("es",{f1_eye:"Resumen",f1_ha:"Mira al instante lo que",f1_hb:"te queda.",f1_desc:"Ingresos, gastos y excedente de un vistazo - con tu tasa de ahorro y un semáforo claro, de Crítico a Excelente.",f1_b1:"Saldo mensual en tiempo real",f1_b2:"Estado de cuatro niveles con semáforo de color",f1_b3:"Todas las categorías listadas con claridad",f2_eye:"Diseños",f2_ha:"60 diseños.",f2_hb:"30 de ellos animados.",f2_desc:"Haz tuya la app: 30 diseños de color y 30 diseños animados con un marco luminoso que recorre lentamente cada casilla en dos colores - además de una suave onda de fondo.",f2_b1:"Marco giratorio en tus colores",f2_b2:"Primero la vista previa - sin comprar a ciegas",f2_b3:"La barra de menú también se anima",f3_eye:"Escanear y reconocer",f3_ha:"Fotografía un recibo —",f3_hb:"listo.",f3_desc:"Fotografía una factura: PROSPERGATE lee el importe y el vencimiento y los añade automáticamente al calendario. Sin escribir nada.",f3_b1:"Importe y vencimiento reconocidos automáticamente",f3_b2:"Añadido directamente al calendario",f3_b3:"También desde PDF o galería",f4_eye:"Seguro de salud",f4_ha:"Primas reales.",f4_hb:"Primero los más baratos.",f4_desc:"Compara primas reales para Suiza, Alemania y los Países Bajos — además de calculadoras de cotización para los Balcanes, Austria y Polonia.",f4_b1:"Suiza, Alemania, Países Bajos — primas reales",f4_b3:"Austria y Polonia con tasa de cotización",f5_eye:"Internet y móvil",f5_ha:"Encuentra la tarifa",f5_hb:"más barata.",f5_desc:"Tarifas de internet y móvil de muchos países comparadas — encuentra rápido la mejor oferta y ahorra en costes fijos.",f5_b1:"Cambia entre internet y móvil con pestañas",f5_b2:"Precios para DE, AT, CH, FR, IT, ES, NL, UK",f5_b3:"Ordenado claramente por precio",f6_eye:"Deudas y objetivos",f6_ha:"Quédate sin deudas.",f6_hb:"Alcanza tus objetivos.",f6_desc:"Controla tus préstamos abiertos y tus objetivos de ahorro — con progreso, estrategia y una fecha clara para quedar sin deudas.",f6_b1:"Fecha sin deudas calculada automáticamente",f6_b2:"Estrategia: avalancha o bola de nieve",f6_b3:"Objetivos de ahorro con barras de progreso"});
+
+add("pt",{f1_eye:"Visão geral",f1_ha:"Vê logo o que",f1_hb:"sobra.",f1_desc:"Receitas, despesas e excedente num relance - com a tua taxa de poupança e um semáforo claro, de Crítico a Excelente.",f1_b1:"Saldo mensal em tempo real",f1_b2:"Estado de quatro níveis com semáforo colorido",f1_b3:"Todas as categorias listadas com clareza",f2_eye:"Designs",f2_ha:"60 designs.",f2_hb:"30 deles animados.",f2_desc:"Faz da app a tua: 30 designs de cor e 30 designs animados com uma moldura luminosa que percorre lentamente cada quadro em duas cores - mais uma onda suave ao fundo.",f2_b1:"Moldura rotativa nas tuas cores",f2_b2:"Primeiro a pré-visualização - sem compra às cegas",f2_b3:"A barra de menu também é animada",f3_eye:"Digitalizar e reconhecer",f3_ha:"Fotografa um recibo —",f3_hb:"pronto.",f3_desc:"Fotografa uma fatura: a PROSPERGATE lê o valor e o vencimento e adiciona-os automaticamente ao calendário. Sem escrever nada.",f3_b1:"Valor e vencimento reconhecidos automaticamente",f3_b2:"Adicionado diretamente ao calendário",f3_b3:"Também a partir de PDF ou galeria",f4_eye:"Seguro de saúde",f4_ha:"Prémios reais.",f4_hb:"Os mais baratos primeiro.",f4_desc:"Compara prémios reais para a Suíça, a Alemanha e os Países Baixos — além de calculadoras de contribuições para os Balcãs, a Áustria e a Polónia.",f4_b1:"Suíça, Alemanha, Países Baixos — prémios reais",f4_b3:"Áustria e Polónia com taxa de contribuição",f5_eye:"Internet e telemóvel",f5_ha:"Encontra a tarifa",f5_hb:"mais barata.",f5_desc:"Tarifas de internet e telemóvel de vários países comparadas — encontra depressa a melhor oferta e poupa nos custos fixos.",f5_b1:"Alterna entre internet e telemóvel por separador",f5_b2:"Preços para DE, AT, CH, FR, IT, ES, NL, UK",f5_b3:"Ordenado de forma clara por preço",f6_eye:"Dívidas e metas",f6_ha:"Fica livre de dívidas.",f6_hb:"Atinge as tuas metas.",f6_desc:"Acompanha os créditos em aberto e as metas de poupança — com progresso, estratégia e uma data clara para ficares sem dívidas.",f6_b1:"Data sem dívidas calculada automaticamente",f6_b2:"Estratégia: avalanche ou bola de neve",f6_b3:"Metas de poupança com barras de progresso"});
+
+add("nl",{f1_eye:"Overzicht",f1_ha:"Zie meteen wat er",f1_hb:"overblijft.",f1_desc:"Inkomsten, uitgaven en overschot in één oogopslag - met je spaarquote en een duidelijk stoplicht, van Kritiek tot Uitstekend.",f1_b1:"Maandelijks restbedrag in realtime",f1_b2:"Status met vier niveaus en kleurenstoplicht",f1_b3:"Alle categorieën overzichtelijk opgesomd",f2_eye:"Designs",f2_ha:"60 designs.",f2_hb:"waarvan 30 geanimeerd.",f2_desc:"Maak de app helemaal van jou: 30 kleurdesigns en 30 geanimeerde designs met een lichtgevende rand die langzaam in twee kleuren om elk vakje loopt - plus een zachte golf op de achtergrond.",f2_b1:"Roterende rand in jouw designkleuren",f2_b2:"Eerst de preview - geen blinde aankoop",f2_b3:"Ook de menubalk wordt geanimeerd",f3_eye:"Scannen & herkennen",f3_ha:"Bonnetje fotograferen —",f3_hb:"klaar.",f3_desc:"Fotografeer een rekening: PROSPERGATE leest het bedrag en de vervaldatum en zet ze automatisch in de agenda. Zonder te typen.",f3_b1:"Bedrag en vervaldatum automatisch herkend",f3_b2:"Direct in de agenda gezet",f3_b3:"Ook vanuit pdf of galerij",f4_eye:"Zorgverzekering",f4_ha:"Echte premies.",f4_hb:"Goedkoopste eerst.",f4_desc:"Vergelijk echte premies voor Zwitserland, Duitsland en Nederland — plus premieberekeningen voor de Balkan, Oostenrijk en Polen.",f4_b1:"Zwitserland, Duitsland, Nederland — echte premies",f4_b3:"Oostenrijk en Polen met premiepercentage",f5_eye:"Internet & mobiel",f5_ha:"Vind het goedkoopste",f5_hb:"abonnement.",f5_desc:"Internet- en mobiele abonnementen uit veel landen vergeleken — vind snel de beste deal en bespaar op vaste kosten.",f5_b1:"Wissel tussen internet en mobiel via tab",f5_b2:"Prijzen voor DE, AT, CH, FR, IT, ES, NL, UK",f5_b3:"Overzichtelijk gesorteerd op prijs",f6_eye:"Schulden & doelen",f6_ha:"Word schuldenvrij.",f6_hb:"Bereik je doelen.",f6_desc:"Houd openstaande leningen en spaardoelen in beeld — met voortgang, strategie en een duidelijke datum waarop je schuldenvrij bent.",f6_b1:"Schuldenvrij-datum automatisch berekend",f6_b2:"Strategie: lawine of sneeuwbal",f6_b3:"Spaardoelen met voortgangsbalken"});
+})();
+</script>
+<script>
+window.PG_EXTRA=window.PG_EXTRA||{};
+(function(){
+function add(l,o){var P=window.PG_EXTRA;if(!P[l])P[l]={};for(var k in o)P[l][k]=o[k];}
+
+add("en",{af_eye:"All features",af_ha:"Everything at",af_hb:"a glance.",af_desc:"Everything PROSPERGATE has to offer — neatly in one place, in your language.",c1_t:"60 designs, 30 animated",c1_d:"Colour and animated designs with a glowing rotating frame — including a preview before you decide.",c2_t:"Receipt scan & recognition",c2_d:"Photograph a bill — amount and due date land in the calendar automatically. Also from PDF or gallery.",c3_t:"Health insurance comparison",c3_d:"Real premiums for Switzerland, Germany and the Netherlands — plus contribution calculators for the Balkans, Austria and Poland.",c4_t:"Internet & mobile",c4_d:"Internet and mobile plans from many countries compared, so you never overpay.",c5_t:"Budget & overview",c5_d:"Income, expenses and surplus at a glance — including your savings rate.",c6_t:"Debts under control",c6_d:"Keep an eye on open balances and your repayment progress.",c7_t:"Savings goals",c7_d:"Set goals and see at any time how close you are to your dream.",c8_t:"Calendar & reminders",c8_d:"See bills and deadlines in good time — with reminders right in the app.",c9_t:"Documents",c9_d:"Important receipts and documents, safe and handy in one place.",c10_t:"27 countries, 22 languages",c10_d:"Currency, profile and language adapt to you automatically.",c11_t:"Always up to date",c11_d:"Premium and provider data update automatically in the background."});
+
+add("fr",{af_eye:"Toutes les fonctions",af_ha:"Tout en",af_hb:"un coup d'œil.",af_desc:"Tout ce que contient PROSPERGATE — clairement réuni en un seul endroit, dans ta langue.",c1_t:"60 designs, 30 animés",c1_d:"Designs colorés et animés avec un cadre lumineux tournant — avec aperçu avant de te décider.",c2_t:"Scan de reçus & reconnaissance",c2_d:"Photographie une facture — montant et échéance arrivent automatiquement dans le calendrier. Aussi depuis un PDF ou la galerie.",c3_t:"Comparatif d'assurance maladie",c3_d:"Vraies primes pour la Suisse, l'Allemagne et les Pays-Bas — plus des calculateurs de cotisations pour les Balkans, l'Autriche et la Pologne.",c4_t:"Internet & mobile",c4_d:"Forfaits internet et mobile de nombreux pays comparés, pour ne jamais payer trop.",c5_t:"Budget & vue d'ensemble",c5_d:"Revenus, dépenses et excédent en un coup d'œil — y compris ton taux d'épargne.",c6_t:"Dettes maîtrisées",c6_d:"Garde un œil sur les montants en cours et ta progression de remboursement.",c7_t:"Objectifs d'épargne",c7_d:"Fixe des objectifs et vois à tout moment à quel point tu es proche de ton rêve.",c8_t:"Calendrier & rappels",c8_d:"Garde un œil sur les factures et les échéances à temps — avec des rappels directement dans l'app.",c9_t:"Documents",c9_d:"Reçus et documents importants, en sécurité et à portée de main au même endroit.",c10_t:"27 pays, 22 langues",c10_d:"Devise, profil et langue s'adaptent automatiquement à toi.",c11_t:"Toujours à jour",c11_d:"Les données de primes et de fournisseurs se mettent à jour automatiquement en arrière-plan."});
+
+add("it",{af_eye:"Tutte le funzioni",af_ha:"Tutto in",af_hb:"un colpo d'occhio.",af_desc:"Tutto ciò che contiene PROSPERGATE — riunito con chiarezza in un solo posto, nella tua lingua.",c1_t:"60 design, 30 animati",c1_d:"Design colorati e animati con cornice luminosa rotante — anteprima inclusa prima di decidere.",c2_t:"Scansione ricevute e riconoscimento",c2_d:"Fotografa una fattura — importo e scadenza finiscono automaticamente nel calendario. Anche da PDF o galleria.",c3_t:"Confronto casse malati",c3_d:"Premi reali per Svizzera, Germania e Paesi Bassi — più calcolatori dei contributi per i Balcani, l'Austria e la Polonia.",c4_t:"Internet e cellulare",c4_d:"Tariffe internet e cellulare di molti paesi a confronto, così non paghi mai troppo.",c5_t:"Budget e panoramica",c5_d:"Entrate, uscite e avanzo a colpo d'occhio — incluso il tuo tasso di risparmio.",c6_t:"Debiti sotto controllo",c6_d:"Tieni d'occhio gli importi aperti e i tuoi progressi nel rimborso.",c7_t:"Obiettivi di risparmio",c7_d:"Imposta obiettivi e vedi in ogni momento quanto sei vicino al tuo sogno.",c8_t:"Calendario e promemoria",c8_d:"Tieni d'occhio fatture e scadenze per tempo — con promemoria direttamente nell'app.",c9_t:"Documenti",c9_d:"Ricevute e documenti importanti, al sicuro e a portata di mano in un unico posto.",c10_t:"27 paesi, 22 lingue",c10_d:"Valuta, profilo e lingua si adattano automaticamente a te.",c11_t:"Sempre aggiornato",c11_d:"I dati su premi e operatori si aggiornano automaticamente in background."});
+
+add("es",{af_eye:"Todas las funciones",af_ha:"Todo de",af_hb:"un vistazo.",af_desc:"Todo lo que ofrece PROSPERGATE — reunido con claridad en un solo lugar, en tu idioma.",c1_t:"60 diseños, 30 animados",c1_d:"Diseños de color y animados con marco luminoso giratorio — con vista previa antes de decidir.",c2_t:"Escaneo de recibos y reconocimiento",c2_d:"Fotografía una factura — el importe y el vencimiento van automáticamente al calendario. También desde PDF o galería.",c3_t:"Comparación de seguros de salud",c3_d:"Primas reales para Suiza, Alemania y los Países Bajos — además de calculadoras de cotización para los Balcanes, Austria y Polonia.",c4_t:"Internet y móvil",c4_d:"Tarifas de internet y móvil de muchos países comparadas, para que nunca pagues de más.",c5_t:"Presupuesto y resumen",c5_d:"Ingresos, gastos y excedente de un vistazo — incluida tu tasa de ahorro.",c6_t:"Deudas bajo control",c6_d:"Vigila los importes pendientes y tu progreso de pago.",c7_t:"Objetivos de ahorro",c7_d:"Fija objetivos y ve en todo momento lo cerca que estás de tu meta.",c8_t:"Calendario y recordatorios",c8_d:"Ten a la vista facturas y plazos a tiempo — con recordatorios directamente en la app.",c9_t:"Documentos",c9_d:"Recibos y documentos importantes, seguros y a mano en un solo lugar.",c10_t:"27 países, 22 idiomas",c10_d:"La moneda, el perfil y el idioma se adaptan automáticamente a ti.",c11_t:"Siempre actualizado",c11_d:"Los datos de primas y proveedores se actualizan automáticamente en segundo plano."});
+
+add("pt",{af_eye:"Todas as funções",af_ha:"Tudo num",af_hb:"relance.",af_desc:"Tudo o que a PROSPERGATE tem — reunido com clareza num só lugar, na tua língua.",c1_t:"60 designs, 30 animados",c1_d:"Designs de cor e animados com moldura luminosa rotativa — com pré-visualização antes de decidires.",c2_t:"Digitalização de recibos e reconhecimento",c2_d:"Fotografa uma fatura — o valor e o vencimento vão automaticamente para o calendário. Também a partir de PDF ou galeria.",c3_t:"Comparação de seguros de saúde",c3_d:"Prémios reais para a Suíça, a Alemanha e os Países Baixos — além de calculadoras de contribuições para os Balcãs, a Áustria e a Polónia.",c4_t:"Internet e telemóvel",c4_d:"Tarifas de internet e telemóvel de vários países comparadas, para nunca pagares a mais.",c5_t:"Orçamento e visão geral",c5_d:"Receitas, despesas e excedente num relance — incluindo a tua taxa de poupança.",c6_t:"Dívidas sob controlo",c6_d:"Fica de olho nos valores em aberto e no teu progresso de pagamento.",c7_t:"Metas de poupança",c7_d:"Define metas e vê a qualquer momento o quão perto estás do teu sonho.",c8_t:"Calendário e lembretes",c8_d:"Vê faturas e prazos a tempo — com lembretes diretamente na app.",c9_t:"Documentos",c9_d:"Recibos e documentos importantes, seguros e à mão num só lugar.",c10_t:"27 países, 22 idiomas",c10_d:"Moeda, perfil e idioma adaptam-se automaticamente a ti.",c11_t:"Sempre atualizado",c11_d:"Os dados de prémios e fornecedores atualizam-se automaticamente em segundo plano."});
+
+add("nl",{af_eye:"Alle functies",af_ha:"Alles in",af_hb:"één oogopslag.",af_desc:"Alles wat PROSPERGATE biedt — overzichtelijk op één plek, in jouw taal.",c1_t:"60 designs, 30 geanimeerd",c1_d:"Kleur- en geanimeerde designs met een lichtgevende roterende rand — inclusief preview voordat je kiest.",c2_t:"Bonscan & herkenning",c2_d:"Fotografeer een rekening — bedrag en vervaldatum komen automatisch in de agenda. Ook vanuit pdf of galerij.",c3_t:"Zorgverzekeringsvergelijking",c3_d:"Echte premies voor Zwitserland, Duitsland en Nederland — plus premieberekeningen voor de Balkan, Oostenrijk en Polen.",c4_t:"Internet & mobiel",c4_d:"Internet- en mobiele abonnementen uit veel landen vergeleken, zodat je nooit te veel betaalt.",c5_t:"Budget & overzicht",c5_d:"Inkomsten, uitgaven en overschot in één oogopslag — inclusief je spaarquote.",c6_t:"Schulden onder controle",c6_d:"Houd openstaande bedragen en je aflossingsvoortgang in de gaten.",c7_t:"Spaardoelen",c7_d:"Stel doelen en zie op elk moment hoe dicht je bij je wens bent.",c8_t:"Agenda & herinneringen",c8_d:"Houd rekeningen en deadlines op tijd in beeld — met herinneringen direct in de app.",c9_t:"Documenten",c9_d:"Belangrijke bonnen en documenten, veilig en bij de hand op één plek.",c10_t:"27 landen, 22 talen",c10_d:"Valuta, profiel en taal passen zich automatisch aan jou aan.",c11_t:"Altijd actueel",c11_d:"Premie- en aanbiedergegevens worden automatisch op de achtergrond bijgewerkt."});
+})();
+</script>
+<script>
+(function(){
+  var langSel=document.getElementById("langSel");
+  var countrySel=document.getElementById("countrySel");
+  if(!langSel||!countrySel) return;
+
+  var LANGNAMES={de:"Deutsch",en:"English",bs:"Bosanski",tr:"Türkçe",fr:"Français",es:"Español",it:"Italiano",pt:"Português",nl:"Nederlands",pl:"Polski",sv:"Svenska",el:"Ελληνικά",cs:"Čeština",ro:"Română",hu:"Magyar",da:"Dansk",fi:"Suomi",hr:"Hrvatski"};
+  var ORDER=["de","en","bs","hr","fr","it","es","pt","nl","tr","pl","sv","el","cs","ro","hu","da","fi"];
+
+  var COUNTRIES=[
+    ["CH","🇨🇭 Schweiz","de"],["DE","🇩🇪 Deutschland","de"],["AT","🇦🇹 Österreich","de"],
+    ["FR","🇫🇷 France","fr"],["IT","🇮🇹 Italia","it"],["ES","🇪🇸 España","es"],
+    ["PT","🇵🇹 Portugal","pt"],["NL","🇳🇱 Nederland","nl"],["BA","🇧🇦 Bosna i Hercegovina","bs"],
+    ["HR","🇭🇷 Hrvatska","hr"],["RS","🇷🇸 Srbija","bs"],["SI","🇸🇮 Slovenija","hr"],
+    ["TR","🇹🇷 Türkiye","tr"],["PL","🇵🇱 Polska","pl"],["SE","🇸🇪 Sverige","sv"],
+    ["GR","🇬🇷 Ελλάδα","el"],["CZ","🇨🇿 Česko","cs"],["RO","🇷🇴 România","ro"],
+    ["HU","🇭🇺 Magyarország","hu"],["DK","🇩🇰 Danmark","da"],["FI","🇫🇮 Suomi","fi"],
+    ["GB","🇬🇧 United Kingdom","en"],["US","🇺🇸 United States","en"]
+  ];
+
+  var T={
+    en:{skip:"Skip to content",nFeat:"Features",nCalc:"Online calculator",nCountries:"Countries",nSec:"Security",nPriv:"Privacy",nDl:"Download",nImpressum:"Imprint",hEyebrow:"Personal finance · across borders",hH1a:"Your money.",hH1b:"Clearly in view.",hLead:"PROSPERGATE combines budgeting, health-insurance comparison and savings goals in one app — for 27 countries, in 22 languages. Secure on your device, completely ad-free.",hStorePre:"Get it on",hCalcBtn:"Calculate online →",tBasel:"Made in Basel",tNoAds:"No ads",tLocal:"Data stays on your device",sCountries:"Countries",sLangs:"Languages",sDesigns:"Designs",sAds:"Ads"},
+    fr:{skip:"Aller au contenu",nFeat:"Fonctions",nCalc:"Calculateur en ligne",nCountries:"Pays",nSec:"Sécurité",nPriv:"Confidentialité",nDl:"Télécharger",nImpressum:"Mentions légales",hEyebrow:"Finances personnelles · au-delà des frontières",hH1a:"Ton argent.",hH1b:"Bien en vue.",hLead:"PROSPERGATE réunit budget, comparaison d'assurance maladie et objectifs d'épargne dans une seule app — pour 27 pays, en 22 langues. En sécurité sur ton appareil, sans aucune publicité.",hStorePre:"Disponible sur",hCalcBtn:"Calculer en ligne →",tBasel:"Conçu à Bâle",tNoAds:"Sans publicité",tLocal:"Les données restent sur l'appareil",sCountries:"Pays",sLangs:"Langues",sDesigns:"Designs",sAds:"Publicités"},
+    it:{skip:"Vai al contenuto",nFeat:"Funzioni",nCalc:"Calcolatore online",nCountries:"Paesi",nSec:"Sicurezza",nPriv:"Privacy",nDl:"Scarica",nImpressum:"Note legali",hEyebrow:"Finanze personali · oltre i confini",hH1a:"I tuoi soldi.",hH1b:"Sempre sott'occhio.",hLead:"PROSPERGATE riunisce budget, confronto delle casse malati e obiettivi di risparmio in un'unica app — per 27 paesi, in 22 lingue. Al sicuro sul tuo dispositivo, senza pubblicità.",hStorePre:"Disponibile su",hCalcBtn:"Calcola online →",tBasel:"Sviluppato a Basilea",tNoAds:"Niente pubblicità",tLocal:"I dati restano sul dispositivo",sCountries:"Paesi",sLangs:"Lingue",sDesigns:"Design",sAds:"Pubblicità"},
+    es:{skip:"Saltar al contenido",nFeat:"Funciones",nCalc:"Calculadora online",nCountries:"Países",nSec:"Seguridad",nPriv:"Privacidad",nDl:"Descargar",nImpressum:"Aviso legal",hEyebrow:"Finanzas personales · más allá de las fronteras",hH1a:"Tu dinero.",hH1b:"Siempre a la vista.",hLead:"PROSPERGATE reúne presupuesto, comparación de seguros de salud y objetivos de ahorro en una sola app — para 27 países, en 22 idiomas. Seguro en tu dispositivo, sin publicidad.",hStorePre:"Disponible en",hCalcBtn:"Calcular online →",tBasel:"Desarrollado en Basilea",tNoAds:"Sin publicidad",tLocal:"Los datos se quedan en tu dispositivo",sCountries:"Países",sLangs:"Idiomas",sDesigns:"Diseños",sAds:"Anuncios"},
+    pt:{skip:"Ir para o conteúdo",nFeat:"Funções",nCalc:"Calculadora online",nCountries:"Países",nSec:"Segurança",nPriv:"Privacidade",nDl:"Baixar",nImpressum:"Informações legais",hEyebrow:"Finanças pessoais · além das fronteiras",hH1a:"O teu dinheiro.",hH1b:"Sempre à vista.",hLead:"A PROSPERGATE reúne orçamento, comparação de seguros de saúde e metas de poupança numa só app — para 27 países, em 22 idiomas. Seguro no teu dispositivo, sem publicidade.",hStorePre:"Disponível no",hCalcBtn:"Calcular online →",tBasel:"Desenvolvido em Basileia",tNoAds:"Sem publicidade",tLocal:"Os dados ficam no teu dispositivo",sCountries:"Países",sLangs:"Idiomas",sDesigns:"Designs",sAds:"Anúncios"},
+    nl:{skip:"Naar de inhoud",nFeat:"Functies",nCalc:"Online calculator",nCountries:"Landen",nSec:"Beveiliging",nPriv:"Privacy",nDl:"Downloaden",nImpressum:"Colofon",hEyebrow:"Persoonlijke financiën · over grenzen heen",hH1a:"Jouw geld.",hH1b:"Altijd in beeld.",hLead:"PROSPERGATE bundelt budget, zorgverzekeringsvergelijking en spaardoelen in één app — voor 27 landen, in 22 talen. Veilig op je toestel, helemaal zonder reclame.",hStorePre:"Nu op",hCalcBtn:"Online rekenen →",tBasel:"Ontwikkeld in Bazel",tNoAds:"Geen reclame",tLocal:"Gegevens blijven op je toestel",sCountries:"Landen",sLangs:"Talen",sDesigns:"Designs",sAds:"Reclame"}
+  };
+
+  try{var EX=window.PG_EXTRA;if(EX){for(var _l in EX){if(!T[_l])T[_l]={};for(var _k in EX[_l]){T[_l][_k]=EX[_l][_k];}}}}catch(e){}
+  var DE={};
+  var init=document.querySelectorAll("[data-i18n]");
+  for(var i=0;i<init.length;i++){DE[init[i].getAttribute("data-i18n")]=init[i].textContent;}
+
+  function setLang(code){
+    if(!LANGNAMES[code]) code="de";
+    document.documentElement.lang=code;
+    var n=document.querySelectorAll("[data-i18n]");
+    for(var i=0;i<n.length;i++){
+      var k=n[i].getAttribute("data-i18n");
+      var v=(code==="de")?DE[k]:((T[code]&&T[code][k]!=null)?T[code][k]:DE[k]);
+      if(v!=null) n[i].textContent=v;
+    }
+    langSel.value=code;
+    try{localStorage.setItem("pg_lang",code);}catch(e){}
+  }
+
+  ORDER.forEach(function(c){var o=document.createElement("option");o.value=c;o.textContent=LANGNAMES[c];langSel.appendChild(o);});
+  langSel.addEventListener("change",function(){setLang(langSel.value);});
+
+  var ph=document.createElement("option");ph.value="";ph.textContent="🌍 Land";countrySel.appendChild(ph);
+  COUNTRIES.forEach(function(c){var o=document.createElement("option");o.value=c[0];o.textContent=c[1];o.setAttribute("data-lang",c[2]);countrySel.appendChild(o);});
+  countrySel.addEventListener("change",function(){var opt=countrySel.options[countrySel.selectedIndex];var lng=opt.getAttribute("data-lang");if(lng)setLang(lng);});
+
+  var saved=null;try{saved=localStorage.getItem("pg_lang");}catch(e){}
+  var initial=saved;
+  if(!initial){
+    var nav=(navigator.languages&&navigator.languages[0])||navigator.language||"de";
+    var two=String(nav).slice(0,2).toLowerCase();
+    var ALIAS={sr:"bs",sh:"bs",sl:"hr"};
+    if(ALIAS[two]) two=ALIAS[two];
+    initial=LANGNAMES[two]?two:"de";
+  }
+  setLang(initial);
+})();
 </script>
 </body>
 </html>
