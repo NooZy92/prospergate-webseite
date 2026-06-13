@@ -1,0 +1,729 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>PROSPERGATE — Dein Geld, klar im Blick</title>
+<meta name="description" content="PROSPERGATE: Budget, Krankenkassen-Vergleich und Sparziele in einer App — für 27 Länder, in 22 Sprachen. Sicher, privat und ohne Werbung." />
+<link rel="icon" href="favicon.png" />
+<meta name="theme-color" content="#0B0B0D" />
+<meta property="og:type" content="website" />
+<meta property="og:site_name" content="PROSPERGATE" />
+<meta property="og:title" content="PROSPERGATE — Dein Geld, klar im Blick" />
+<meta property="og:description" content="PROSPERGATE: Budget, Krankenkassen-Vergleich und Sparziele in einer App — für 27 Länder, in 22 Sprachen. Sicher, privat und ohne Werbung." />
+<meta property="og:locale" content="de_CH" />
+<style>
+  :root {
+    --bg: #0B0B0D;
+    --bg2: #0E0E13;
+    --panel: #161520;
+    --panel2: #1C1B26;
+    --line: #2A2833;
+    --text: #FAF6EC;
+    --muted: #A39E91;
+    --gold: #E7C36A;
+    --gold-deep: #C7A02A;
+    --grad: linear-gradient(135deg, #F6DE92 0%, #D9A93A 55%, #A9781C 100%);
+    --serif: "Iowan Old Style", "Palatino Linotype", Palatino, Georgia, "Times New Roman", serif;
+    --sans: system-ui, -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    --mono: "SFMono-Regular", Consolas, "Liberation Mono", Menlo, monospace;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+  body { background: var(--bg); color: var(--text); font-family: var(--sans); line-height: 1.65; -webkit-font-smoothing: antialiased; overflow-x: hidden; }
+  .wrap { width: min(1140px, 92vw); margin: 0 auto; }
+  .eyebrow { font-family: var(--mono); font-size: 12px; letter-spacing: 3px; text-transform: uppercase; color: var(--gold); }
+  .gold-text { background: var(--grad); -webkit-background-clip: text; background-clip: text; color: transparent; }
+  a { color: var(--gold); }
+
+  /* Header */
+  header { position: sticky; top: 0; z-index: 50; backdrop-filter: blur(12px); background: rgba(11,11,13,.78); border-bottom: 1px solid var(--line); }
+  .nav { display: flex; align-items: center; justify-content: space-between; padding: 15px 0; gap: 16px; }
+  .brand { display: flex; align-items: center; gap: 11px; text-decoration: none; }
+  .brand .logo { width: 30px; height: 30px; }
+  .brand .name { font-family: var(--sans); font-weight: 800; letter-spacing: 1.5px; font-size: 17px; }
+  .nav-links { display: flex; align-items: center; gap: 26px; }
+  .nav-links a { color: var(--muted); text-decoration: none; font-size: 14px; font-weight: 600; transition: color .2s; }
+  .nav-links a:hover { color: var(--text); }
+  .btn { font-family: var(--sans); font-weight: 700; font-size: 14px; cursor: pointer; border: none; border-radius: 999px; padding: 12px 22px; text-decoration: none; display: inline-block; transition: transform .15s ease, box-shadow .2s ease; }
+  .btn-gold { background: var(--grad); color: #1A1505; box-shadow: 0 6px 20px rgba(217,169,58,.28); }
+  .btn-gold:hover { transform: translateY(-2px); box-shadow: 0 10px 28px rgba(217,169,58,.4); }
+  .btn-ghost { background: transparent; color: var(--text); border: 1px solid var(--line); }
+  .btn-ghost:hover { border-color: var(--gold); color: var(--gold); }
+
+  /* Hero */
+  .hero { position: relative; padding: 84px 0 70px; }
+  .hero-glow { position: absolute; top: -120px; right: -10%; width: 760px; height: 760px; background: radial-gradient(circle, rgba(227,178,60,.16), rgba(227,178,60,0) 62%); pointer-events: none; z-index: 0; }
+  .hero-grid { position: relative; z-index: 1; display: grid; grid-template-columns: 1.05fr .95fr; gap: 56px; align-items: center; }
+  .hero h1 { font-family: var(--serif); font-weight: 700; font-size: clamp(40px, 6vw, 66px); line-height: 1.04; letter-spacing: -.5px; margin: 18px 0 20px; }
+  .hero p.lead { font-size: 18px; color: var(--muted); max-width: 31em; margin-bottom: 28px; }
+  .cta-row { display: flex; gap: 14px; flex-wrap: wrap; align-items: center; }
+  .trust { font-family: var(--mono); font-size: 12px; color: var(--muted); margin-top: 26px; letter-spacing: .5px; }
+  .trust b { color: var(--gold); font-weight: 700; }
+
+  /* Store badge */
+  .store { display: inline-flex; align-items: center; gap: 11px; background: var(--grad); color: #1A1505; border-radius: 14px; padding: 11px 20px; text-decoration: none; box-shadow: 0 6px 20px rgba(217,169,58,.28); transition: transform .15s; }
+  .store:hover { transform: translateY(-2px); }
+  .store .tri { width: 22px; height: 22px; }
+  .store .s1 { font-size: 10px; font-weight: 700; letter-spacing: 1px; text-transform: uppercase; opacity: .8; line-height: 1; }
+  .store .s2 { font-size: 17px; font-weight: 800; line-height: 1.2; }
+  .soon { font-family: var(--mono); font-size: 11px; color: var(--muted); letter-spacing: .5px; }
+
+  /* Device / video */
+  .stage { display: flex; justify-content: center; }
+  .device { position: relative; width: min(430px, 84vw); aspect-ratio: 1 / 1; border-radius: 40px; padding: 13px; background: linear-gradient(165deg, #26242e 0%, #0c0c11 100%); border: 1px solid rgba(231,195,106,.20); box-shadow: 0 30px 70px rgba(0,0,0,.6), 0 0 0 1px rgba(0,0,0,.4) inset; }
+  .device::before { content: ""; position: absolute; top: 18px; left: 50%; transform: translateX(-50%); width: 54px; height: 6px; border-radius: 4px; background: rgba(255,255,255,.10); z-index: 3; }
+  .screen { position: relative; border-radius: 28px; overflow: hidden; background: #000; aspect-ratio: 1/1; }
+  .screen video { width: 100%; height: 100%; object-fit: cover; display: block; }
+  .sound { position: absolute; bottom: 14px; right: 14px; z-index: 4; display: inline-flex; align-items: center; gap: 7px; font-family: var(--sans); font-size: 13px; font-weight: 700; color: #fff; cursor: pointer; background: rgba(10,10,12,.6); backdrop-filter: blur(6px); border: 1px solid rgba(255,255,255,.18); border-radius: 999px; padding: 9px 14px; transition: background .2s, border-color .2s; }
+  .sound:hover { background: rgba(10,10,12,.85); border-color: var(--gold); }
+  .stage-cap { font-family: var(--mono); font-size: 11px; color: var(--muted); letter-spacing: 1px; text-align: center; margin-top: 16px; }
+  /* App-Vorschau (animierte Screens nach dem Video) */
+  .screens { position:absolute; inset:0; z-index:2; opacity:0; pointer-events:none; transition:opacity .5s; background:linear-gradient(180deg,#0E0E13,#0B0B0D); }
+  .screens.show { opacity:1; }
+  .appscreen { position:absolute; inset:0; opacity:0; transform:scale(1.03); transition:opacity .55s ease, transform .7s ease; padding:24px 20px; display:flex; flex-direction:column; gap:12px; }
+  .appscreen.active { opacity:1; transform:scale(1); }
+  .as-top { display:flex; align-items:center; gap:9px; margin-bottom:2px; }
+  .as-top .lg { width:22px; height:22px; }
+  .as-top .ti { font-family:var(--serif); font-weight:700; font-size:18px; color:#FAF6EC; }
+  .as-card { background:#161520; border:1px solid #2A2833; border-radius:16px; padding:15px; }
+  .as-big { font-family:var(--serif); font-weight:700; font-size:clamp(26px,7vw,34px); line-height:1; }
+  .as-lbl { font-size:10.5px; color:#A39E91; text-transform:uppercase; letter-spacing:1px; margin-bottom:5px; }
+  .as-bar { height:8px; border-radius:6px; background:#23222c; overflow:hidden; margin-top:9px; }
+  .as-bar > i { display:block; height:100%; border-radius:6px; background:linear-gradient(90deg,#F6DE92,#C7A02A); }
+  .as-row { display:flex; justify-content:space-between; align-items:center; padding:8px 0; border-bottom:1px solid #23222c; font-size:13px; color:#FAF6EC; }
+  .as-row:last-child { border-bottom:none; }
+  .as-badge { background:linear-gradient(135deg,#F6DE92,#C7A02A); color:#1A1505; font-size:8.5px; font-weight:800; border-radius:5px; padding:2px 6px; margin-left:6px; letter-spacing:.3px; }
+  .as-price { font-family:var(--serif); font-weight:700; font-size:15px; }
+
+  /* Stats */
+  .stats { border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); background: var(--bg2); }
+  .stats-grid { display: grid; grid-template-columns: repeat(4, 1fr); }
+  .stat { padding: 28px 18px; text-align: center; border-left: 1px solid var(--line); }
+  .stat:first-child { border-left: none; }
+  .stat .n { font-family: var(--serif); font-weight: 700; font-size: 38px; line-height: 1; }
+  .stat .l { font-family: var(--mono); font-size: 11px; letter-spacing: 1.5px; text-transform: uppercase; color: var(--muted); margin-top: 8px; }
+
+  /* Sections */
+  .section { padding: 92px 0; }
+  .sec-head { max-width: 34em; margin-bottom: 46px; }
+  .sec-head h2 { font-family: var(--serif); font-weight: 700; font-size: clamp(30px, 4.4vw, 46px); line-height: 1.08; letter-spacing: -.5px; margin: 14px 0 12px; }
+  .sec-head p { color: var(--muted); font-size: 17px; }
+
+  /* Feature grid */
+  .features { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; }
+  .card { background: var(--panel); border: 1px solid var(--line); border-radius: 20px; padding: 26px 24px; transition: transform .2s ease, border-color .2s ease, background .2s ease; }
+  .card:hover { transform: translateY(-4px); border-color: rgba(231,195,106,.4); background: var(--panel2); }
+  .card .ic { width: 46px; height: 46px; border-radius: 13px; display: flex; align-items: center; justify-content: center; font-size: 22px; background: rgba(231,195,106,.10); border: 1px solid rgba(231,195,106,.22); margin-bottom: 16px; }
+  .card h3 { font-family: var(--sans); font-weight: 800; font-size: 18px; margin-bottom: 7px; }
+  .card p { color: var(--muted); font-size: 14.5px; }
+
+  /* Banded panels */
+  .panel-band { position: relative; overflow: hidden; border-radius: 28px; background: linear-gradient(150deg, #17151c, #0d0d11); border: 1px solid var(--line); padding: 52px; }
+  .panel-band .glow { position: absolute; inset: 0; background: radial-gradient(circle at 50% 0%, rgba(227,178,60,.15), transparent 60%); pointer-events: none; }
+  .band-grid { position: relative; display: grid; grid-template-columns: 1.2fr 1fr; gap: 30px; align-items: center; }
+  .band-grid h2 { font-family: var(--serif); font-weight: 700; font-size: clamp(28px, 4vw, 42px); margin-top: 12px; }
+  .band-grid p { color: var(--muted); margin-top: 14px; }
+  .flags { font-family: var(--mono); font-size: 14px; color: var(--muted); line-height: 2.1; letter-spacing: .5px; }
+  .flags b { color: var(--gold); font-weight: 700; }
+
+  .checks { list-style: none; margin-top: 18px; display: grid; gap: 12px; }
+  .checks li { position: relative; padding-left: 30px; color: var(--text); }
+  .checks li::before { content: "✓"; position: absolute; left: 0; top: 0; color: #1A1505; background: var(--grad); width: 20px; height: 20px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 12px; font-weight: 800; }
+  .checks li span { color: var(--muted); }
+
+  /* Download */
+  .dl-band { text-align: center; }
+  .dl-band h2 { font-family: var(--serif); font-weight: 700; font-size: clamp(30px, 4.4vw, 46px); position: relative; }
+  .dl-band p { color: var(--muted); max-width: 36em; margin: 14px auto 26px; position: relative; }
+  .dl-row { display: flex; gap: 14px; justify-content: center; align-items: center; flex-wrap: wrap; position: relative; }
+
+  /* Legal */
+  .legal-wrap { max-width: 760px; }
+  .legal-wrap h2 { font-family: var(--serif); font-weight: 700; font-size: clamp(28px, 4vw, 40px); margin-bottom: 8px; }
+  .legal-wrap h3 { font-family: var(--sans); font-weight: 800; font-size: 17px; margin: 26px 0 6px; color: var(--text); }
+  .legal-wrap p, .legal-wrap address { color: var(--muted); font-size: 15px; font-style: normal; margin-bottom: 10px; }
+  .legal-note { font-family: var(--mono); font-size: 12px; color: var(--gold-deep); border: 1px dashed rgba(231,195,106,.35); border-radius: 12px; padding: 12px 16px; margin: 18px 0; line-height: 1.7; }
+  .ph { color: var(--gold); font-weight: 700; }
+
+  /* Footer */
+  footer { border-top: 1px solid var(--line); padding: 44px 0; }
+  .foot { display: flex; justify-content: space-between; align-items: center; gap: 20px; flex-wrap: wrap; }
+  .foot-links a { color: var(--muted); text-decoration: none; font-size: 13px; margin-left: 20px; }
+  .foot-links a:hover { color: var(--gold); }
+  .foot .legal-small { font-family: var(--mono); font-size: 11px; color: var(--muted); line-height: 1.7; margin-top: 14px; width: 100%; }
+
+  /* reveal */
+  .reveal { opacity: 0; transform: translateY(18px); transition: opacity .7s ease, transform .7s ease; }
+  .reveal.in { opacity: 1; transform: none; }
+
+  @media (max-width: 900px) {
+    .nav-links { display: none; }
+    .hero-grid { grid-template-columns: 1fr; gap: 44px; }
+    .hero { padding: 52px 0 46px; }
+    .stage { order: -1; }
+    .features { grid-template-columns: 1fr 1fr; }
+    .stats-grid { grid-template-columns: 1fr 1fr; }
+    .stat:nth-child(odd) { border-left: none; }
+    .stat:nth-child(even) { border-left: 1px solid var(--line); }
+    .band-grid { grid-template-columns: 1fr; }
+    .panel-band { padding: 36px 24px; }
+  }
+  @media (max-width: 540px) { .features { grid-template-columns: 1fr; } }
+  @media (prefers-reduced-motion: reduce) { .reveal { opacity: 1; transform: none; transition: none; } html { scroll-behavior: auto; } }
+
+  .skip{position:absolute;left:-9999px;top:0;background:var(--gold);color:#0B0B0D;padding:12px 18px;border-radius:0 0 12px 0;font-weight:800;z-index:999;text-decoration:none;}
+  .skip:focus{left:0;}
+  :focus-visible{outline:3px solid var(--gold);outline-offset:2px;}
+  .vid-note{color:var(--muted);font-size:12.5px;text-align:center;margin-top:10px;}
+  @media (prefers-reduced-motion: reduce){*,*::before,*::after{animation:none !important;transition:none !important;scroll-behavior:auto !important;}}
+  /* Animiertes Logo (Start-Splash) */
+  .splash{position:absolute;inset:0;z-index:3;display:flex;align-items:center;justify-content:center;background:radial-gradient(circle at 50% 42%,#16131d,#0B0B0D 75%);opacity:0;pointer-events:none;transition:opacity .6s ease;}
+  .splash.show{opacity:1;}
+  .splash .lo{width:56%;max-width:200px;filter:drop-shadow(0 0 20px rgba(231,195,106,.4));}
+  .splash .gate{stroke-dasharray:320;stroke-dashoffset:320;}
+  .splash.show .gate{animation:draw 1.5s ease .15s forwards;}
+  .splash .arr{opacity:0;transform:translateY(10px);}
+  .splash.show .arr{animation:rise .7s ease 1.05s forwards;}
+  .splash .ttl{position:absolute;left:0;right:0;bottom:20%;text-align:center;font-family:var(--serif);font-weight:700;letter-spacing:4px;font-size:19px;opacity:0;}
+  .splash.show .ttl{animation:rise .8s ease 1.35s forwards;}
+  @keyframes draw{to{stroke-dashoffset:0;}}
+  @keyframes rise{to{opacity:1;transform:translateY(0);}}
+  /* Auto-Scroll fuer Einstellungen-Screen */
+  .scroller{flex:1;overflow:hidden;position:relative;}
+  .sc-inner{position:absolute;left:0;right:0;top:0;display:flex;flex-direction:column;gap:9px;animation:scrollup 7s ease-in-out infinite alternate;}
+  @keyframes scrollup{0%,12%{transform:translateY(0);}88%,100%{transform:translateY(-48%);}}
+  /* Feature-Reihen (Bilderreihen) */
+  .feat{padding:64px 0;border-top:1px solid var(--line);}
+  .feat-grid{display:grid;grid-template-columns:1fr 1fr;gap:56px;align-items:center;}
+  .feat.alt .col-txt{order:2;}
+  .feat .col-txt h2{font-family:var(--serif);font-weight:700;font-size:clamp(26px,3.6vw,40px);line-height:1.1;margin:12px 0 14px;}
+  .feat .col-txt p{color:var(--muted);font-size:16px;margin-bottom:16px;}
+  .mini{list-style:none;display:grid;gap:10px;}
+  .mini li{position:relative;padding-left:28px;font-size:14.5px;color:var(--text);}
+  .mini li::before{content:"\2713";position:absolute;left:0;top:1px;color:#1A1505;background:var(--grad);width:19px;height:19px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:11px;font-weight:800;}
+  /* Mockup-Telefon (klein) */
+  .mock{position:relative;width:min(290px,78vw);aspect-ratio:.6/1;margin:0 auto;border-radius:34px;padding:11px;background:linear-gradient(165deg,#26242e,#0c0c11);border:1px solid rgba(231,195,106,.2);box-shadow:0 26px 60px rgba(0,0,0,.55);}
+  .mock-scr{position:relative;width:100%;height:100%;border-radius:25px;overflow:hidden;background:linear-gradient(180deg,#0E0E13,#0B0B0D);padding:16px 13px;display:flex;flex-direction:column;gap:11px;}
+  .m-top{display:flex;align-items:center;gap:8px;margin-bottom:2px;}
+  .m-top svg{width:19px;height:19px;}
+  .m-top .t{font-family:var(--serif);font-weight:700;font-size:15px;}
+  .m-card{background:#161520;border:1px solid #2A2833;border-radius:14px;padding:12px;}
+  .m-lbl{font-size:9.5px;color:#A39E91;text-transform:uppercase;letter-spacing:1px;margin-bottom:4px;}
+  .m-big{font-family:var(--serif);font-weight:700;font-size:25px;line-height:1;}
+  .m-row{display:flex;justify-content:space-between;align-items:center;padding:6px 0;border-bottom:1px solid #23222c;font-size:12px;color:#FAF6EC;}
+  .m-row:last-child{border-bottom:none;}
+  .m-price{font-family:var(--serif);font-weight:700;font-size:13px;}
+  .m-bar{height:7px;border-radius:6px;background:#23222c;overflow:hidden;margin-top:8px;}
+  .m-bar>i{display:block;height:100%;border-radius:6px;background:linear-gradient(90deg,#F6DE92,#C7A02A);width:var(--w,60%);}
+  /* Rotierender Leucht-Rahmen */
+  .ring,.staticring{position:relative;border-radius:17px;overflow:hidden;padding:3px;}
+  .ring::before,.staticring::before{content:"";position:absolute;top:50%;left:50%;width:320%;aspect-ratio:1;z-index:0;background:conic-gradient(from 0deg,#A9781C,#F6DE92,#fff7df,#F6DE92,#A9781C,#F6DE92,#A9781C);transform:translate(-50%,-50%);}
+  .ring::before{animation:spin 3.4s linear infinite;}
+  .ring.cyc::before{animation:spin 3.4s linear infinite,hue 9s linear infinite;}
+  .ring>*,.staticring>*{position:relative;z-index:1;}
+  @keyframes spin{from{transform:translate(-50%,-50%) rotate(0);}to{transform:translate(-50%,-50%) rotate(1turn);}}
+  @keyframes hue{to{filter:hue-rotate(360deg);}}
+  /* Design-Tupfer */
+  .swatches{display:grid;grid-template-columns:repeat(6,1fr);gap:7px;}
+  .sw{aspect-ratio:1;border-radius:9px;border:1px solid rgba(255,255,255,.08);}
+  /* Scan-Demo */
+  .scanbox{position:relative;flex:1;border:2px solid #2A2833;border-radius:14px;overflow:hidden;display:flex;align-items:center;justify-content:center;background:#0b1220;min-height:150px;}
+  .receipt{width:48%;background:#f8fafc;border-radius:6px;padding:9px;transform:rotate(-2deg);}
+  .receipt .rl{height:4px;background:#cbd5e1;border-radius:2px;margin-bottom:4px;}
+  .receipt .rl.dk{background:#0f172a;width:60%;height:6px;margin-bottom:7px;}
+  .receipt .rl.gd{background:linear-gradient(90deg,#F6DE92,#C7A02A);width:50%;height:5px;}
+  .scanline{position:absolute;left:8%;right:8%;height:3px;background:#E7C36A;box-shadow:0 0 10px #E7C36A;border-radius:2px;top:12%;animation:scan 2.6s ease-in-out infinite;}
+  @keyframes scan{0%,100%{top:12%;}50%{top:82%;}}
+  .corner{position:absolute;width:16px;height:16px;border:3px solid #E7C36A;}
+  .corner.tl{top:9px;left:9px;border-right:none;border-bottom:none;border-top-left-radius:5px;}
+  .corner.tr{top:9px;right:9px;border-left:none;border-bottom:none;border-top-right-radius:5px;}
+  .corner.bl{bottom:9px;left:9px;border-right:none;border-top:none;border-bottom-left-radius:5px;}
+  .corner.br{bottom:9px;right:9px;border-left:none;border-top:none;border-bottom-right-radius:5px;}
+  .tabs{display:flex;gap:6px;}
+  .tab{flex:1;text-align:center;font-size:11px;font-weight:700;padding:7px;border-radius:9px;background:#161520;border:1px solid #2A2833;color:#A39E91;}
+  .tab.on{background:linear-gradient(135deg,#F6DE92,#C7A02A);color:#1A1505;border-color:transparent;}
+  @media (max-width:900px){.feat-grid{grid-template-columns:1fr;gap:32px;}.feat .col-txt{order:2 !important;}.feat .col-vis{order:1;}}
+</style>
+</head>
+<body>
+<a class="skip" href="#main">Zum Inhalt springen</a>
+
+<header>
+  <div class="wrap nav">
+    <a class="brand" href="#top">
+      <svg class="logo" viewBox="0 0 100 100" aria-hidden="true"><defs><linearGradient id="lg1" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#F6DE92"/><stop offset=".55" stop-color="#D9A93A"/><stop offset="1" stop-color="#A9781C"/></linearGradient></defs><g stroke-linejoin="round"><path d="M50,15 L80,25 L80,52 Q80,78 50,88 Q20,78 20,52 L20,25 Z" fill="rgba(230,196,99,0.10)" stroke="url(#lg1)" stroke-width="5.5"/><path d="M50,40 L63,57 L55,57 L55,70 L45,70 L45,57 L37,57 Z" fill="url(#lg1)"/></g></svg>
+      <span class="name gold-text">PROSPERGATE</span>
+    </a>
+    <nav class="nav-links">
+      <a href="#funktionen">Funktionen</a>
+      <a href="rechner.html" style="color:var(--gold);">Online-Rechner</a>
+      <a href="#laender">Länder</a>
+      <a href="#sicherheit">Sicherheit</a>
+      <a href="#datenschutz">Datenschutz</a>
+      <a href="#download" class="btn btn-gold" style="color:#1A1505;">Download</a>
+    </nav>
+  </div>
+</header>
+<main id="main">
+
+<span id="top"></span>
+<section class="hero">
+  <div class="hero-glow"></div>
+  <div class="wrap hero-grid">
+    <div class="reveal">
+      <div class="eyebrow">Persönliche Finanzen · über Grenzen hinweg</div>
+      <h1>Dein Geld.<br /><span class="gold-text">Klar im Blick.</span></h1>
+      <p class="lead">PROSPERGATE bündelt Budget, Krankenkassen-Vergleich und Sparziele in einer App — für 27 Länder, in 22 Sprachen. Sicher auf deinem Gerät, ganz ohne Werbung.</p>
+      <div class="cta-row">
+        <a href="#download" class="store">
+          <svg class="tri" viewBox="0 0 24 24" aria-hidden="true"><path d="M3 2.5v19l16.5-9.5L3 2.5z" fill="#1A1505"/></svg>
+          <span><span class="s1">Jetzt bei</span><br/><span class="s2">Google Play</span></span>
+        </a>
+        <a href="rechner.html" class="btn btn-ghost">Online rechnen →</a>
+      </div>
+      <div class="trust">Entwickelt in Basel <b>·</b> Keine Werbung <b>·</b> Daten bleiben auf dem Gerät</div>
+    </div>
+
+    <div class="reveal">
+      <div class="stage">
+        <div class="device">
+          <div class="screen">
+            <video id="demo" autoplay muted playsinline preload="auto" aria-label="PROSPERGATE Intro - Musik, keine Sprache">
+              <source src="intro.mp4" type="video/mp4" />
+            </video>
+            <button id="sound" class="sound" type="button" aria-label="Ton einschalten">🔊 Ton einschalten</button>
+            <div class="splash" id="splash">
+              <svg class="lo" viewBox="0 0 100 100" aria-hidden="true">
+                <defs><linearGradient id="sl1" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#F6DE92"/><stop offset=".55" stop-color="#D9A93A"/><stop offset="1" stop-color="#A9781C"/></linearGradient></defs>
+                <path class="gate" d="M50,14 L82,25 L82,53 Q82,80 50,90 Q18,80 18,53 L18,25 Z" fill="rgba(230,196,99,0.06)" stroke="url(#sl1)" stroke-width="6" stroke-linejoin="round"/>
+                <path class="arr" d="M50,40 L64,58 L55,58 L55,72 L45,72 L45,58 L36,58 Z" fill="url(#sl1)"/>
+              </svg>
+              <div class="ttl gold-text">PROSPERGATE</div>
+            </div>
+            <div class="screens" id="screens">
+              <div class="appscreen">
+                <div class="as-top"><svg class="lg" viewBox="0 0 100 100"><defs><linearGradient id="al1" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#F6DE92"/><stop offset="1" stop-color="#A9781C"/></linearGradient></defs><path d="M50,14 L82,25 L82,53 Q82,80 50,90 Q18,80 18,53 L18,25 Z" fill="none" stroke="url(#al1)" stroke-width="6" stroke-linejoin="round"/><path d="M50,40 L64,58 L55,58 L55,72 L45,72 L45,58 L36,58 Z" fill="url(#al1)"/></svg><span class="ti">Budget</span></div>
+        <div class="as-card"><div class="as-lbl">Überschuss / Monat</div><div class="as-big" style="color:#39B86B;">+CHF 1'240</div><div class="as-bar"><i style="width:34%;"></i></div><div style="font-size:11px;color:#A39E91;margin-top:7px;">Sparquote 34 %</div></div>
+                <div class="as-card" style="flex:1;"><div class="as-row"><span>💼 Einnahmen</span><span class="as-price" style="color:#39B86B;">CHF 3'650</span></div><div class="as-row"><span>🏠 Wohnen</span><span class="as-price">CHF 1'350</span></div><div class="as-row"><span>🛒 Lebensmittel</span><span class="as-price">CHF 480</span></div><div class="as-row"><span>🚆 Transport</span><span class="as-price">CHF 180</span></div></div>
+              </div>
+              <div class="appscreen">
+                <div class="as-top"><svg class="lg" viewBox="0 0 100 100"><path d="M50,14 L82,25 L82,53 Q82,80 50,90 Q18,80 18,53 L18,25 Z" fill="none" stroke="url(#al1)" stroke-width="6" stroke-linejoin="round"/><path d="M50,40 L64,58 L55,58 L55,72 L45,72 L45,58 L36,58 Z" fill="url(#al1)"/></svg><span class="ti">Krankenkasse</span></div>
+                <div class="as-card" style="flex:1;"><div class="as-lbl">Günstigste Grundversicherung · Zürich</div><div class="as-row"><span>🥇 SLKK<span class="as-badge">GÜNSTIGSTE</span></span><span class="as-price" style="color:#E7C36A;">CHF 476.90</span></div><div class="as-row"><span>Sanitas</span><span class="as-price">CHF 489.10</span></div><div class="as-row"><span>Concordia</span><span class="as-price">CHF 501.40</span></div><div class="as-row"><span>CSS</span><span class="as-price">CHF 512.00</span></div><div class="as-row"><span>Helsana</span><span class="as-price">CHF 528.70</span></div></div>
+              </div>
+              <div class="appscreen">
+                <div class="as-top"><svg class="lg" viewBox="0 0 100 100"><path d="M50,14 L82,25 L82,53 Q82,80 50,90 Q18,80 18,53 L18,25 Z" fill="none" stroke="url(#al1)" stroke-width="6" stroke-linejoin="round"/><path d="M50,40 L64,58 L55,58 L55,72 L45,72 L45,58 L36,58 Z" fill="url(#al1)"/></svg><span class="ti">Schulden</span></div>
+                <div class="as-card"><div class="as-lbl">Schuldenfrei in</div><div class="as-big" style="color:#E7C36A;">29 Monate</div><div style="font-size:11px;color:#A39E91;margin-top:7px;">Voraussichtlich bis November 2028</div></div>
+                <div class="as-card" style="flex:1;"><div class="as-row"><span>💳 Kreditkarte</span><span class="as-price" style="color:#E0584F;">CHF 4'200</span></div><div class="as-row"><span>🚗 Autokredit</span><span class="as-price" style="color:#E0584F;">CHF 8'500</span></div><div class="as-lbl" style="margin-top:14px;">Strategie · Lawine (höchster Zins zuerst)</div><div class="as-bar"><i style="width:42%;"></i></div></div>
+              </div>
+              <div class="appscreen">
+                <div class="as-top"><svg class="lg" viewBox="0 0 100 100"><path d="M50,14 L82,25 L82,53 Q82,80 50,90 Q18,80 18,53 L18,25 Z" fill="none" stroke="url(#al1)" stroke-width="6" stroke-linejoin="round"/><path d="M50,40 L64,58 L55,58 L55,72 L45,72 L45,58 L36,58 Z" fill="url(#al1)"/></svg><span class="ti">Sparziele</span></div>
+                <div class="as-card"><div class="as-lbl">Notgroschen</div><div class="as-row" style="border:none;padding-bottom:0;"><span>CHF 3'200 / 5'000</span><span class="as-price" style="color:#39B86B;">64 %</span></div><div class="as-bar"><i style="width:64%;"></i></div></div>
+                <div class="as-card" style="flex:1;"><div class="as-lbl">Urlaub</div><div class="as-row" style="border:none;padding-bottom:0;"><span>CHF 900 / 2'000</span><span class="as-price">45 %</span></div><div class="as-bar"><i style="width:45%;"></i></div><div class="as-lbl" style="margin-top:14px;">Neues Auto</div><div class="as-row" style="border:none;padding-bottom:0;"><span>CHF 6'500 / 20'000</span><span class="as-price">33 %</span></div><div class="as-bar"><i style="width:33%;"></i></div></div>
+              </div>
+              <div class="appscreen">
+                <div class="as-top"><svg class="lg" viewBox="0 0 100 100"><path d="M50,14 L82,25 L82,53 Q82,80 50,90 Q18,80 18,53 L18,25 Z" fill="none" stroke="url(#al1)" stroke-width="6" stroke-linejoin="round"/><path d="M50,40 L64,58 L55,58 L55,72 L45,72 L45,58 L36,58 Z" fill="url(#al1)"/></svg><span class="ti">Internet & Handy</span></div>
+                <div class="as-card" style="flex:1;"><div class="as-lbl">Internet · Schweiz</div><div class="as-row"><span>🥇 Mucho · 50 Mbit/s<span class="as-badge">GÜNSTIGSTE</span></span><span class="as-price" style="color:#E7C36A;">CHF 24.90</span></div><div class="as-row"><span>Sunrise · 1 Gbit/s</span><span class="as-price">CHF 39.90</span></div><div class="as-row"><span>Swisscom · 100 Mbit/s</span><span class="as-price">CHF 39.90</span></div><div class="as-row"><span>Quickline · 200 Mbit/s</span><span class="as-price">CHF 44.00</span></div><div class="as-row"><span>Salt · Fiber</span><span class="as-price">CHF 49.95</span></div></div>
+              </div>
+              <div class="appscreen">
+                <div class="as-top"><svg class="lg" viewBox="0 0 100 100"><path d="M50,14 L82,25 L82,53 Q82,80 50,90 Q18,80 18,53 L18,25 Z" fill="none" stroke="url(#al1)" stroke-width="6" stroke-linejoin="round"/><path d="M50,40 L64,58 L55,58 L55,72 L45,72 L45,58 L36,58 Z" fill="url(#al1)"/></svg><span class="ti">Scannen</span></div>
+                <div class="as-card" style="flex:1;display:flex;align-items:center;justify-content:center;"><div style="text-align:center;"><div style="font-size:46px;">🧾</div><div style="color:#A39E91;font-size:12px;margin-top:8px;">Beleg fotografieren</div></div></div>
+                <div class="as-card"><div class="as-row"><span>🧾 Rechnung</span><span class="as-price">CHF 89.50</span></div><div class="as-row"><span>📅 Fällig</span><span class="as-price">15.07.2026</span></div><div style="margin-top:8px;background:rgba(57,184,107,.16);border-radius:9px;padding:6px;text-align:center;color:#39B86B;font-size:11px;font-weight:800;">✓ In Kalender übernommen</div></div>
+              </div>
+              <div class="appscreen">
+                <div class="as-top"><svg class="lg" viewBox="0 0 100 100"><path d="M50,14 L82,25 L82,53 Q82,80 50,90 Q18,80 18,53 L18,25 Z" fill="none" stroke="url(#al1)" stroke-width="6" stroke-linejoin="round"/><path d="M50,40 L64,58 L55,58 L55,72 L45,72 L45,58 L36,58 Z" fill="url(#al1)"/></svg><span class="ti">Kalender</span></div>
+                <div class="as-card" style="flex:1;"><div class="as-lbl">Diesen Monat fällig</div><div class="as-row"><span>📅 15.07 · Krankenkasse</span><span class="as-price" style="color:#E7C36A;">CHF 476.90</span></div><div class="as-row"><span>📅 20.07 · Miete</span><span class="as-price">CHF 1'350</span></div><div class="as-row"><span>📅 25.07 · Internet</span><span class="as-price">CHF 24.90</span></div><div class="as-row"><span>📅 28.07 · Handy</span><span class="as-price">CHF 19.90</span></div></div>
+              </div>
+              <div class="appscreen">
+                <div class="as-top"><svg class="lg" viewBox="0 0 100 100"><path d="M50,14 L82,25 L82,53 Q82,80 50,90 Q18,80 18,53 L18,25 Z" fill="none" stroke="url(#al1)" stroke-width="6" stroke-linejoin="round"/><path d="M50,40 L64,58 L55,58 L55,72 L45,72 L45,58 L36,58 Z" fill="url(#al1)"/></svg><span class="ti">Einstellungen</span></div>
+                <div class="scroller">
+                  <div class="sc-inner">
+                    <div class="as-card"><div class="as-row" style="border:none;padding:0;"><span>🎨 Farbe & Muster</span><span class="as-price" style="color:#E7C36A;">›</span></div></div>
+                    <div class="as-card"><div class="as-lbl">Animierte Designs</div><div style="display:flex;gap:7px;"><div style="width:22px;height:22px;border-radius:7px;background:linear-gradient(135deg,#38BDF8,#1D4ED8);"></div><div style="width:22px;height:22px;border-radius:7px;background:linear-gradient(135deg,#2DD4BF,#0F766E);"></div><div style="width:22px;height:22px;border-radius:7px;background:linear-gradient(135deg,#FB923C,#DB2777);"></div><div style="width:22px;height:22px;border-radius:7px;background:linear-gradient(135deg,#FCD34D,#B45309);"></div><div style="width:22px;height:22px;border-radius:7px;background:linear-gradient(135deg,#C084FC,#6D28D9);"></div></div></div>
+                    <div class="as-card"><div class="as-row" style="border:none;padding:0;"><span>🌍 Sprache</span><span class="as-price">Deutsch ›</span></div></div>
+                    <div class="as-card"><div class="as-row" style="border:none;padding:0;"><span>💰 Währung</span><span class="as-price">CHF ›</span></div></div>
+                    <div class="as-card"><div class="as-row" style="border:none;padding:0;"><span>🔒 PIN & Fingerabdruck</span><span class="as-price">An ›</span></div></div>
+                    <div class="as-card"><div class="as-row" style="border:none;padding:0;"><span>👑 Premium</span><span class="as-price" style="color:#E7C36A;">›</span></div></div>
+                    <div class="as-card"><div class="as-row" style="border:none;padding:0;"><span>🔔 Erinnerungen</span><span class="as-price">An ›</span></div></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            </div>
+        </div>
+      </div>
+      <div class="stage-cap">Video · Logo · ein Blick in die App</div>
+    </div>
+  </div>
+</section>
+
+<section class="stats">
+  <div class="wrap stats-grid">
+    <div class="stat"><div class="n gold-text">27</div><div class="l">Länder</div></div>
+    <div class="stat"><div class="n gold-text">22</div><div class="l">Sprachen</div></div>
+    <div class="stat"><div class="n gold-text">60</div><div class="l">Designs</div></div>
+    <div class="stat"><div class="n gold-text">0</div><div class="l">Werbung</div></div>
+  </div>
+</section>
+
+<!-- Reihe 1: Überblick -->
+<section class="feat" id="funktionen">
+  <div class="wrap feat-grid reveal">
+    <div class="col-txt">
+      <div class="eyebrow">Überblick</div>
+      <h2>Sieh sofort, was <span class="gold-text">übrig bleibt.</span></h2>
+      <p>Einnahmen, Ausgaben und Überschuss auf einen Blick - mit deiner Sparquote und einer klaren Ampel von Kritisch bis Hervorragend.</p>
+      <ul class="mini">
+        <li>Monatlicher Restbetrag in Echtzeit</li>
+        <li>Vier-Stufen-Status mit Farb-Ampel</li>
+        <li>Alle Kategorien übersichtlich aufgelistet</li>
+      </ul>
+    </div>
+    <div class="col-vis">
+      <div class="mock">
+        <div class="mock-scr">
+          <div class="m-top"><svg viewBox="0 0 100 100"><path d="M50,14 L82,25 L82,53 Q82,80 50,90 Q18,80 18,53 L18,25 Z" fill="none" stroke="#E7C36A" stroke-width="6" stroke-linejoin="round"/><path d="M50,40 L64,58 L55,58 L55,72 L45,72 L45,58 L36,58 Z" fill="#E7C36A"/></svg><span class="t">Übersicht</span></div>
+          <div class="staticring"><div class="m-card"><div class="m-lbl">Monatlicher Restbetrag</div><div class="m-big" style="color:#39B86B;">+CHF 1'240</div><div style="font-size:10px;color:#39B86B;margin-top:6px;font-weight:700;">Hervorragend - Sparquote 34 %</div></div></div>
+          <div class="m-card" style="flex:1;"><div class="m-row"><span>Einnahmen</span><span class="m-price" style="color:#39B86B;">3'650</span></div><div class="m-row"><span>Wohnen</span><span class="m-price">1'350</span></div><div class="m-row"><span>Lebensmittel</span><span class="m-price">480</span></div><div class="m-row"><span>Transport</span><span class="m-price">180</span></div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Reihe 2: Designs -->
+<section class="feat alt">
+  <div class="wrap feat-grid reveal">
+    <div class="col-txt">
+      <div class="eyebrow">Designs</div>
+      <h2>60 Designs. <span class="gold-text">30 davon animiert.</span></h2>
+      <p>Mach die App zu deiner: 30 Farb-Designs und 30 animierte Designs mit einem Leucht-Rahmen, der langsam in zwei Farben um jedes Kästchen läuft - plus eine sanfte Welle im Hintergrund.</p>
+      <ul class="mini">
+        <li>Umlaufender Rahmen in deinen Design-Farben</li>
+        <li>Vorschau zuerst - kein Blindkauf</li>
+        <li>Auch die Menüleiste wird animiert</li>
+      </ul>
+    </div>
+    <div class="col-vis">
+      <div class="mock">
+        <div class="mock-scr">
+          <div class="m-top"><svg viewBox="0 0 100 100"><path d="M50,14 L82,25 L82,53 Q82,80 50,90 Q18,80 18,53 L18,25 Z" fill="none" stroke="#E7C36A" stroke-width="6" stroke-linejoin="round"/><path d="M50,40 L64,58 L55,58 L55,72 L45,72 L45,58 L36,58 Z" fill="#E7C36A"/></svg><span class="t">Designs</span></div>
+          <div class="ring cyc"><div class="m-card"><div class="m-lbl">Animiertes Design - Vorschau</div><div class="m-row" style="border:none;padding-top:2px;"><span>Polarlicht</span><span class="m-price" style="color:#E7C36A;">aktiv</span></div></div></div>
+          <div class="m-card"><div class="m-lbl">30 Farben</div><div class="swatches"><div class="sw" style="background:#1D4ED8;"></div><div class="sw" style="background:#0F766E;"></div><div class="sw" style="background:#6366F1;"></div><div class="sw" style="background:#DB2777;"></div><div class="sw" style="background:#B45309;"></div><div class="sw" style="background:#047857;"></div><div class="sw" style="background:#9F1239;"></div><div class="sw" style="background:#7C3AED;"></div><div class="sw" style="background:#0369A1;"></div><div class="sw" style="background:#DC2626;"></div><div class="sw" style="background:#0284C7;"></div><div class="sw" style="background:#A21CAF;"></div></div></div>
+          <div class="m-card" style="flex:1;"><div class="m-lbl">30 animierte Designs</div><div class="swatches"><div class="sw" style="background:linear-gradient(135deg,#38BDF8,#1D4ED8);"></div><div class="sw" style="background:linear-gradient(135deg,#2DD4BF,#0F766E);"></div><div class="sw" style="background:linear-gradient(135deg,#22D3EE,#A855F7);"></div><div class="sw" style="background:linear-gradient(135deg,#FB923C,#DB2777);"></div><div class="sw" style="background:linear-gradient(135deg,#FCD34D,#B45309);"></div><div class="sw" style="background:linear-gradient(135deg,#34D399,#065F46);"></div></div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Reihe 3: Scannen -->
+<section class="feat">
+  <div class="wrap feat-grid reveal">
+    <div class="col-txt">
+      <div class="eyebrow">Scannen & Erkennen</div>
+      <h2>Beleg fotografieren — <span class="gold-text">fertig.</span></h2>
+      <p>Fotografiere eine Rechnung: PROSPERGATE liest Betrag und Fälligkeit aus und legt sie automatisch in den Kalender. Ganz ohne Tippen.</p>
+      <ul class="mini">
+        <li>Betrag und Fälligkeit automatisch erkannt</li>
+        <li>Direkt in den Kalender übernommen</li>
+        <li>Auch aus PDF oder Galerie</li>
+      </ul>
+    </div>
+    <div class="col-vis">
+      <div class="mock">
+        <div class="mock-scr">
+          <div class="m-top"><svg viewBox="0 0 100 100"><path d="M50,14 L82,25 L82,53 Q82,80 50,90 Q18,80 18,53 L18,25 Z" fill="none" stroke="#E7C36A" stroke-width="6" stroke-linejoin="round"/><path d="M50,40 L64,58 L55,58 L55,72 L45,72 L45,58 L36,58 Z" fill="#E7C36A"/></svg><span class="t">Scannen</span></div>
+          <div class="scanbox">
+            <div class="corner tl"></div><div class="corner tr"></div><div class="corner bl"></div><div class="corner br"></div>
+            <div class="receipt"><div class="rl dk"></div><div class="rl"></div><div class="rl" style="width:90%;"></div><div class="rl" style="width:55%;"></div><div class="rl gd"></div></div>
+            <div class="scanline"></div>
+          </div>
+          <div class="m-card"><div class="m-row"><span>🧾 Rechnung</span><span class="m-price">CHF 89.50</span></div><div class="m-row"><span>📅 Fällig</span><span class="m-price">15.07.2026</span></div><div style="margin-top:8px;background:rgba(57,184,107,.16);border-radius:9px;padding:6px;text-align:center;color:#39B86B;font-size:11px;font-weight:800;">✓ In Kalender übernommen</div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Reihe 4: Krankenkasse -->
+<section class="feat alt">
+  <div class="wrap feat-grid reveal">
+    <div class="col-txt">
+      <div class="eyebrow">Krankenkasse</div>
+      <h2>Echte Beiträge. <span class="gold-text">Günstigste zuerst.</span></h2>
+      <p>Vergleiche echte Prämien für die Schweiz, Deutschland und die Niederlande — plus Beitragsrechner für den Balkan, Österreich und Polen.</p>
+      <ul class="mini">
+        <li>Schweiz, Deutschland, Niederlande — echte Prämien</li>
+        <li>Balkan: 🇧🇦 🇷🇸 🇭🇷 🇸🇮 🇲🇰 🇦🇱 🇽🇰</li>
+        <li>Österreich und Polen mit Beitragssatz</li>
+      </ul>
+    </div>
+    <div class="col-vis">
+      <div class="mock">
+        <div class="mock-scr">
+          <div class="m-top"><svg viewBox="0 0 100 100"><path d="M50,14 L82,25 L82,53 Q82,80 50,90 Q18,80 18,53 L18,25 Z" fill="none" stroke="#E7C36A" stroke-width="6" stroke-linejoin="round"/><path d="M50,40 L64,58 L55,58 L55,72 L45,72 L45,58 L36,58 Z" fill="#E7C36A"/></svg><span class="t">Krankenkasse</span></div>
+          <div class="m-card" style="flex:1;"><div class="m-lbl">Günstigste Grundversicherung · Zürich</div><div class="m-row"><span>🥇 SLKK</span><span class="m-price" style="color:#E7C36A;">476.90</span></div><div class="m-row"><span>Sanitas</span><span class="m-price">489.10</span></div><div class="m-row"><span>Concordia</span><span class="m-price">501.40</span></div><div class="m-row"><span>CSS</span><span class="m-price">512.00</span></div><div class="m-row"><span>Helsana</span><span class="m-price">528.70</span></div></div>
+          <div class="m-card"><div class="m-lbl">Balkan · Beitragsrechner</div><div class="m-row" style="border:none;padding-top:2px;"><span>🇷🇸 Serbien</span><span class="m-price" style="color:#E7C36A;">5,15 %</span></div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Reihe 5: Internet & Handy -->
+<section class="feat">
+  <div class="wrap feat-grid reveal">
+    <div class="col-txt">
+      <div class="eyebrow">Internet & Handy</div>
+      <h2>Den günstigsten <span class="gold-text">Tarif finden.</span></h2>
+      <p>Internet- und Handy-Tarife vieler Länder im Vergleich — finde schnell das beste Angebot und spar bei den Fixkosten.</p>
+      <ul class="mini">
+        <li>Internet und Handy per Tab umschaltbar</li>
+        <li>Preise für DE, AT, CH, FR, IT, ES, NL, UK</li>
+        <li>Übersichtlich nach Preis sortiert</li>
+      </ul>
+    </div>
+    <div class="col-vis">
+      <div class="mock">
+        <div class="mock-scr">
+          <div class="m-top"><svg viewBox="0 0 100 100"><path d="M50,14 L82,25 L82,53 Q82,80 50,90 Q18,80 18,53 L18,25 Z" fill="none" stroke="#E7C36A" stroke-width="6" stroke-linejoin="round"/><path d="M50,40 L64,58 L55,58 L55,72 L45,72 L45,58 L36,58 Z" fill="#E7C36A"/></svg><span class="t">Internet & Handy</span></div>
+          <div class="tabs"><div class="tab on">📶 Internet</div><div class="tab">📱 Handy</div></div>
+          <div class="m-card" style="flex:1;"><div class="m-lbl">Internet · Schweiz</div><div class="m-row"><span>🥇 Mucho · 50 Mbit/s</span><span class="m-price" style="color:#E7C36A;">24.90</span></div><div class="m-row"><span>Sunrise · 1 Gbit/s</span><span class="m-price">39.90</span></div><div class="m-row"><span>Swisscom · 100 Mbit/s</span><span class="m-price">39.90</span></div><div class="m-row"><span>Quickline · 200 Mbit/s</span><span class="m-price">44.00</span></div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Reihe 6: Schulden & Sparziele -->
+<section class="feat alt">
+  <div class="wrap feat-grid reveal">
+    <div class="col-txt">
+      <div class="eyebrow">Schulden & Ziele</div>
+      <h2>Schuldenfrei werden. <span class="gold-text">Ziele erreichen.</span></h2>
+      <p>Behalte offene Kredite und Sparziele im Blick — mit Fortschritt, Strategie und einem klaren Datum, wann du schuldenfrei bist.</p>
+      <ul class="mini">
+        <li>Schuldenfrei-Datum automatisch berechnet</li>
+        <li>Strategie: Lawine oder Schneeball</li>
+        <li>Sparziele mit Fortschrittsbalken</li>
+      </ul>
+    </div>
+    <div class="col-vis">
+      <div class="mock">
+        <div class="mock-scr">
+          <div class="m-top"><svg viewBox="0 0 100 100"><path d="M50,14 L82,25 L82,53 Q82,80 50,90 Q18,80 18,53 L18,25 Z" fill="none" stroke="#E7C36A" stroke-width="6" stroke-linejoin="round"/><path d="M50,40 L64,58 L55,58 L55,72 L45,72 L45,58 L36,58 Z" fill="#E7C36A"/></svg><span class="t">Schulden & Ziele</span></div>
+          <div class="m-card"><div class="m-lbl">Schuldenfrei in</div><div class="m-big" style="color:#E7C36A;">29 Monate</div><div style="font-size:10px;color:#A39E91;margin-top:6px;">bis November 2028 · Strategie Lawine</div></div>
+          <div class="m-card" style="flex:1;"><div class="m-lbl">Sparziel · Notgroschen</div><div class="m-row" style="border:none;padding-bottom:0;"><span>CHF 3'200 / 5'000</span><span class="m-price" style="color:#39B86B;">64 %</span></div><div class="m-bar"><i style="--w:64%;"></i></div><div class="m-lbl" style="margin-top:13px;">Sparziel · Urlaub</div><div class="m-row" style="border:none;padding-bottom:0;"><span>CHF 900 / 2'000</span><span class="m-price">45 %</span></div><div class="m-bar"><i style="--w:45%;"></i></div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="alle-funktionen">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <div class="eyebrow">Alle Funktionen</div>
+      <h2>Alles auf <span class="gold-text">einen Blick.</span></h2>
+      <p>Was alles in PROSPERGATE steckt — übersichtlich an einem Ort, in deiner Sprache.</p>
+    </div>
+    <div class="features">
+      <div class="card reveal"><div class="ic">🎨</div><h3>60 Designs, 30 animiert</h3><p>Farb- und animierte Designs mit umlaufendem Leucht-Rahmen — inklusive Vorschau, bevor du dich entscheidest.</p></div>
+      <div class="card reveal"><div class="ic">📷</div><h3>Beleg-Scan & Erkennung</h3><p>Rechnung fotografieren — Betrag und Fälligkeit landen automatisch im Kalender. Auch aus PDF oder Galerie.</p></div>
+      <div class="card reveal"><div class="ic">🏥</div><h3>Krankenkassen-Vergleich</h3><p>Echte Prämien für die Schweiz, Deutschland und die Niederlande — plus Beitragsrechner für den Balkan, Österreich und Polen.</p></div>
+      <div class="card reveal"><div class="ic">📶</div><h3>Internet & Handy</h3><p>Internet- und Handytarife vieler Länder im Vergleich, damit du nichts zu viel zahlst.</p></div>
+      <div class="card reveal"><div class="ic">📊</div><h3>Budget & Überblick</h3><p>Einnahmen, Ausgaben und Überschuss auf einen Blick — inklusive deiner Sparquote.</p></div>
+      <div class="card reveal"><div class="ic">💳</div><h3>Schulden im Griff</h3><p>Behalte offene Beträge und deinen Fortschritt beim Abbezahlen im Auge.</p></div>
+      <div class="card reveal"><div class="ic">🎯</div><h3>Sparziele</h3><p>Setze Ziele und sieh jederzeit, wie nah du deinem Wunsch schon bist.</p></div>
+      <div class="card reveal"><div class="ic">📅</div><h3>Kalender & Erinnerungen</h3><p>Rechnungen und Fristen rechtzeitig im Blick — mit Erinnerungen direkt in der App.</p></div>
+      <div class="card reveal"><div class="ic">📄</div><h3>Dokumente</h3><p>Wichtige Belege und Unterlagen sicher und griffbereit an einem Ort.</p></div>
+      <div class="card reveal"><div class="ic">🌍</div><h3>27 Länder, 22 Sprachen</h3><p>Währung, Profil und Sprache passen sich automatisch an dich an.</p></div>
+      <div class="card reveal"><div class="ic">🔄</div><h3>Immer aktuell</h3><p>Prämien- und Anbieterdaten aktualisieren sich automatisch im Hintergrund.</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="rechnen" style="padding-top:0;">
+  <div class="wrap">
+    <div class="panel-band reveal" style="text-align:center;">
+      <div class="glow"></div>
+      <div class="eyebrow" style="position:relative;">Lieber am Computer?</div>
+      <h2 style="font-family:var(--serif);font-weight:700;font-size:clamp(28px,4vw,42px);margin:12px 0 10px;position:relative;">Rechne <span class="gold-text">direkt im Browser.</span></h2>
+      <p style="color:var(--muted);max-width:40em;margin:0 auto 24px;position:relative;">Budget, Schulden, Krankenkassen-Vergleich und Internet — alles ohne Installation, ohne Konto. Wähle dein Land und vergleiche sofort.</p>
+      <div style="position:relative;"><a href="rechner.html" class="btn btn-gold">Zum Online-Rechner →</a></div>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="laender" style="padding-top:0;">
+  <div class="wrap">
+    <div class="panel-band reveal">
+      <div class="glow"></div>
+      <div class="band-grid">
+        <div>
+          <div class="eyebrow">In deiner Welt zuhause</div>
+          <h2>27 Länder. 22 Sprachen.<br/><span class="gold-text">Eine App.</span></h2>
+          <p>Von der Schweiz über Deutschland und die Niederlande bis Schweden: Währung, Profil und Sprache stellen sich automatisch auf dich ein. Wo es offizielle Daten gibt, vergleicht PROSPERGATE echte Preise — ehrlich und ohne Werbung.</p>
+        </div>
+        <div class="flags">
+          🇨🇭 🇩🇪 🇦🇹 🇳🇱 🇫🇷 🇮🇹<br/>🇪🇸 🇵🇹 🇵🇱 🇸🇪 🇬🇧 🇺🇸<br/>🇬🇷 🇨🇿 🇷🇴 🇭🇺 🇩🇰 🇫🇮<br/>🇭🇷 🇧🇦 🇹🇷 <b>+ International</b>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="sicherheit" style="padding-top:0;">
+  <div class="wrap">
+    <div class="panel-band reveal">
+      <div class="glow"></div>
+      <div class="band-grid">
+        <div>
+          <div class="eyebrow">Sicherheit & Privatsphäre</div>
+          <h2>Deine Daten <span class="gold-text">gehören dir.</span></h2>
+          <p>PROSPERGATE ist bewusst privat gebaut. Deine Eingaben bleiben dort, wo sie hingehören — bei dir.</p>
+        </div>
+        <ul class="checks">
+          <li><b>PIN und Fingerabdruck</b> <span>— nur du kommst rein.</span></li>
+          <li>Finanzdaten <b>bleiben auf deinem Gerät</b> <span>— keine Cloud-Pflicht.</span></li>
+          <li><b>Keine Werbung</b> <span>— und kein Verkauf deiner Daten.</span></li>
+          <li><b>Kein Konto nötig</b> <span>— einfach loslegen.</span></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="download" style="padding-top:0;">
+  <div class="wrap">
+    <div class="panel-band dl-band reveal">
+      <div class="glow"></div>
+      <div class="eyebrow" style="position:relative;">Download</div>
+      <h2>Hol dir PROSPERGATE.</h2>
+      <p>Bald für Android verfügbar. Lade die App und behalte dein Geld im Griff — auf 27 Länder zugeschnitten, in 22 Sprachen.</p>
+      <div class="dl-row">
+        <a href="#" class="store">
+          <svg class="tri" viewBox="0 0 24 24" aria-hidden="true"><path d="M3 2.5v19l16.5-9.5L3 2.5z" fill="#1A1505"/></svg>
+          <span><span class="s1">Jetzt bei</span><br/><span class="s2">Google Play</span></span>
+        </a>
+      </div>
+      <div class="soon" style="margin-top:16px; position:relative;">Bald verfügbar — der Link wird aktiv, sobald die App im Play Store ist.</div>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="datenschutz" style="padding-top:0;">
+  <div class="wrap legal-wrap reveal">
+    <div class="eyebrow">Rechtliches</div>
+    <h2>Datenschutzerklärung</h2>
+    <p>Diese Website ist eine reine Informationsseite zur App PROSPERGATE. Datenschutz ist uns wichtig.</p>
+
+    <div class="legal-note">Hinweis: Dies ist eine Vorlage und keine Rechtsberatung. Ersetze die <span class="ph">[markierten Stellen]</span> durch deine echten Angaben und lass den Text bei Bedarf fachkundig prüfen.</div>
+
+    <h3>1. Verantwortlich</h3>
+    <address>
+      <span class="ph">[Dein Name / Firmenname]</span><br/>
+      <span class="ph">[Strasse und Hausnummer]</span><br/>
+      <span class="ph">[PLZ, Ort, Land]</span><br/>
+      E-Mail: <span class="ph">[deine@email.tld]</span>
+    </address>
+
+    <h3>2. Welche Daten wir erheben</h3>
+    <p>Diese Website setzt keine Cookies, nutzt kein Tracking und bindet keine externen Dienste ein (auch keine externen Schriftarten oder Analyse-Tools). Über die Website selbst erheben wir keine personenbezogenen Daten von dir.</p>
+
+    <h3>3. Server-Logfiles</h3>
+    <p>Beim Aufruf der Website verarbeitet der Hosting-Anbieter — wie bei praktisch jeder Website — technische Daten in Server-Logfiles (z. B. IP-Adresse, Datum und Uhrzeit des Zugriffs, aufgerufene Seite, verwendeter Browser). Das dient dem sicheren und stabilen Betrieb und wird nicht mit anderen Daten zusammengeführt. Rechtsgrundlage ist das berechtigte Interesse am sicheren Betrieb (Art. 6 Abs. 1 lit. f DSGVO). Hosting-Anbieter: <span class="ph">[Name deines Webhosters eintragen]</span>.</p>
+
+    <h3>4. Daten in der App PROSPERGATE</h3>
+    <p>Die App speichert deine Eingaben (z. B. Budget und Ausgaben) ausschliesslich lokal auf deinem Gerät. Diese Daten werden nicht an uns übertragen. Zum Aktualisieren von Vergleichsdaten (z. B. Krankenkassen-Prämien) lädt die App öffentlich verfügbare Daten aus dem Internet; dabei werden keine persönlichen Daten von dir übermittelt.</p>
+
+    <h3>5. Deine Rechte</h3>
+    <p>Du hast das Recht auf Auskunft, Berichtigung, Löschung und Einschränkung der Verarbeitung deiner Daten sowie das Recht, dich bei einer Datenschutz-Aufsichtsbehörde zu beschweren. Wende dich dazu an die oben genannte E-Mail-Adresse.</p>
+
+    <h3>6. Änderungen</h3>
+    <p>Wir können diese Datenschutzerklärung anpassen, etwa wenn sich die Website ändert. Es gilt jeweils die aktuelle Fassung. Stand: <span class="ph">[Monat Jahr]</span>.</p>
+  </div>
+</section>
+
+<section class="section" id="impressum" style="padding-top:0;">
+  <div class="wrap legal-wrap reveal">
+    <div class="eyebrow">Rechtliches</div>
+    <h2>Impressum</h2>
+    <div class="legal-note">Trag hier deine echten Kontaktdaten ein. In vielen Ländern (z. B. Deutschland, Schweiz) ist ein Impressum für Websites Pflicht.</div>
+    <h3>Angaben</h3>
+    <address>
+      <span class="ph">[Dein Name / Firmenname]</span><br/>
+      <span class="ph">[Strasse und Hausnummer]</span><br/>
+      <span class="ph">[PLZ, Ort]</span><br/>
+      <span class="ph">[Land]</span>
+    </address>
+    <h3>Kontakt</h3>
+    <address>
+      E-Mail: <span class="ph">[deine@email.tld]</span><br/>
+      Telefon (optional): <span class="ph">[Telefonnummer]</span>
+    </address>
+    <h3>Haftung</h3>
+    <p>PROSPERGATE bietet keine Finanz- oder Versicherungsberatung. Alle Angaben in der App und auf dieser Website erfolgen ohne Gewähr.</p>
+  </div>
+</section>
+
+</main>
+<footer>
+  <div class="wrap foot">
+    <a class="brand" href="#top">
+      <svg class="logo" width="26" height="26" viewBox="0 0 100 100" aria-hidden="true"><defs><linearGradient id="lg2" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#F6DE92"/><stop offset=".55" stop-color="#D9A93A"/><stop offset="1" stop-color="#A9781C"/></linearGradient></defs><g stroke-linejoin="round"><path d="M50,15 L80,25 L80,52 Q80,78 50,88 Q20,78 20,52 L20,25 Z" fill="rgba(230,196,99,0.10)" stroke="url(#lg2)" stroke-width="5.5"/><path d="M50,40 L63,57 L55,57 L55,70 L45,70 L45,57 L37,57 Z" fill="url(#lg2)"/></g></svg>
+      <span class="name gold-text">PROSPERGATE</span>
+    </a>
+    <nav class="foot-links">
+      <a href="#funktionen">Funktionen</a>
+      <a href="rechner.html">Online-Rechner</a>
+      <a href="#download">Download</a>
+      <a href="#datenschutz">Datenschutz</a>
+      <a href="#impressum">Impressum</a>
+    </nav>
+    <div class="legal-small">Entwickelt in Basel 🇨🇭 · © <span id="yr">2026</span> PROSPERGATE. Keine Finanz- oder Versicherungsberatung. Alle Angaben ohne Gewähr.</div>
+  </div>
+</footer>
+
+<script>
+  (function () {
+    var v = document.getElementById("demo");
+    var b = document.getElementById("sound");
+    var splash = document.getElementById("splash");
+    var screens = document.getElementById("screens");
+    var slides = screens ? screens.querySelectorAll(".appscreen") : [];
+    var REDUCED = window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    var idx = 0, timer = null;
+    function show(){ for (var i=0;i<slides.length;i++) slides[i].classList.toggle("active", i===idx); }
+    function nextSlide(){
+      timer = setTimeout(function(){
+        idx++;
+        if (idx >= slides.length){
+          if(screens) screens.classList.remove("show");
+          if (v && v.muted){ try{ v.currentTime = 0; }catch(e){} var p = v.play(); if(p&&p.catch) p.catch(function(){}); }
+          return;
+        }
+        show(); nextSlide();
+      }, 2400);
+    }
+    function runScreens(){ if(screens) screens.classList.add("show"); idx = 0; show(); if(!REDUCED) nextSlide(); }
+    function runSplash(){ if(splash) splash.classList.add("show"); setTimeout(function(){ if(splash) splash.classList.remove("show"); runScreens(); }, 2600); }
+    if (v) v.addEventListener("ended", runSplash);
+    if (b && v){
+      function refresh(){ b.innerHTML = v.muted ? "🔊 Ton einschalten" : "🔇 Ton aus"; b.setAttribute("aria-label", v.muted ? "Ton einschalten" : "Ton ausschalten"); }
+      b.addEventListener("click", function(){ v.muted = !v.muted; if(!v.muted){ v.loop = true; if(timer) clearTimeout(timer); if(screens) screens.classList.remove("show"); if(splash) splash.classList.remove("show"); var p = v.play(); if(p&&p.catch) p.catch(function(){}); } else { v.loop = false; } refresh(); });
+      refresh();
+    }
+    if (REDUCED){ if(v){ try{ v.removeAttribute("autoplay"); v.pause(); }catch(e){} } runScreens(); }
+  })();
+  (function () {
+    var els = document.querySelectorAll(".reveal");
+    if (!("IntersectionObserver" in window)) { els.forEach(function (e) { e.classList.add("in"); }); return; }
+    var io = new IntersectionObserver(function (entries) { entries.forEach(function (e) { if (e.isIntersecting) { e.target.classList.add("in"); io.unobserve(e.target); } }); }, { threshold: 0.12 });
+    els.forEach(function (e) { io.observe(e); });
+  })();
+  document.getElementById("yr").textContent = new Date().getFullYear();
+</script>
+</body>
+</html>
